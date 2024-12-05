@@ -1,0 +1,428 @@
+{
+  "last_node_id": 24,
+  "last_link_id": 39,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        352.9709167480469,
+        207.87005615234375
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 4
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            28
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a super car jumping out in air , cinematic , movie fast and furious"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "EmptyLatentImage",
+      "pos": [
+        427.1484680175781,
+        730.2109375
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            25
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "type": "DualCLIPLoader",
+      "pos": [
+        14.117981910705566,
+        223.12533569335938
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            4,
+            5
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "t5xxl_fp8_e4m3fn_scaled.safetensors",
+        "flux"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        430.3023681640625,
+        62.3533821105957
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            6
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "shuttle-3.1-aesthetic.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        867.1322021484375,
+        213.20640563964844
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 6
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 28
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 3
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            39
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        829381261128750,
+        "randomize",
+        6,
+        1,
+        "euler",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "type": "VAELoader",
+      "pos": [
+        874.8245239257812,
+        536.8765869140625
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "shuttle_vae.safetensors"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1235.48681640625,
+        215.56703186035156
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 39
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 9,
+      "type": "SaveImage",
+      "pos": [
+        1507.5408935546875,
+        220.3101043701172
+      ],
+      "size": [
+        669.0460205078125,
+        569.4749755859375
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [
+        356.58721923828125,
+        457.376953125
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    }
+  ],
+  "links": [
+    [
+      3,
+      5,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      4,
+      2,
+      0,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      5,
+      2,
+      0,
+      5,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      1,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      8,
+      7,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      10,
+      8,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      6,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      28,
+      4,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      39,
+      3,
+      0,
+      8,
+      0,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5644739300537771,
+      "offset": [
+        -5.120720973487526,
+        71.996187723995
+      ]
+    }
+  },
+  "version": 0.4
+}
