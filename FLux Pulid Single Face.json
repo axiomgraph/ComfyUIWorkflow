@@ -1,0 +1,683 @@
+{
+  "last_node_id": 242,
+  "last_link_id": 407,
+  "nodes": [
+    {
+      "id": 210,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1128.6663818359375,
+        2050.370849609375
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 361
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            362
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 208,
+      "type": "DualCLIPLoader",
+      "pos": [
+        782.929931640625,
+        1800.4661865234375
+      ],
+      "size": [
+        315,
+        122
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            360,
+            361
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "clip_l.safetensors",
+        "t5xxl_fp8_e4m3fn_scaled.safetensors",
+        "flux",
+        "default"
+      ]
+    },
+    {
+      "id": 222,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        1184.1202392578125,
+        2297.70166015625
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            376
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 207,
+      "type": "UNETLoader",
+      "pos": [
+        774.944091796875,
+        1672.691162109375
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            402
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "flux1-dev-fp8.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 209,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1126.327880859375,
+        1801.797607421875
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 360
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            363
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a woman wearing supergirl suit, highly detailed, sharp focus\n"
+      ]
+    },
+    {
+      "id": 238,
+      "type": "ApplyPulidFlux",
+      "pos": [
+        1639.95361328125,
+        1702.4716796875
+      ],
+      "size": [
+        315,
+        226
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 402
+        },
+        {
+          "name": "pulid_flux",
+          "type": "PULIDFLUX",
+          "link": 404
+        },
+        {
+          "name": "eva_clip",
+          "type": "EVA_CLIP",
+          "link": 405
+        },
+        {
+          "name": "face_analysis",
+          "type": "FACEANALYSIS",
+          "link": 406
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 407
+        },
+        {
+          "name": "attn_mask",
+          "type": "MASK",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "options",
+          "type": "OPTIONS",
+          "shape": 7,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            403
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ApplyPulidFlux"
+      },
+      "widgets_values": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 211,
+      "type": "KSampler",
+      "pos": [
+        2018.814453125,
+        1708.929443359375
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 403
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 363
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 362
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 376
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            372
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        930866952517475,
+        "randomize",
+        20,
+        1,
+        "euler",
+        "beta",
+        1
+      ]
+    },
+    {
+      "id": 219,
+      "type": "VAELoader",
+      "pos": [
+        2014.9566650390625,
+        2024.25146484375
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            373
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ]
+    },
+    {
+      "id": 218,
+      "type": "VAEDecode",
+      "pos": [
+        2374.27587890625,
+        1711.9642333984375
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 372
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 373
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            374
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 220,
+      "type": "SaveImage",
+      "pos": [
+        2607.0859375,
+        1713.7261962890625
+      ],
+      "size": [
+        603.4276733398438,
+        622.8480834960938
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 374
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 242,
+      "type": "LoadImage",
+      "pos": [
+        1641.5272216796875,
+        1334.1533203125
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            407
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ComfyUI_00308_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 239,
+      "type": "PulidFluxModelLoader",
+      "pos": [
+        1203.679443359375,
+        1360.6612548828125
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "PULIDFLUX",
+          "type": "PULIDFLUX",
+          "links": [
+            404
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxModelLoader"
+      },
+      "widgets_values": [
+        "pulid_flux_v0.9.1.safetensors"
+      ]
+    },
+    {
+      "id": 240,
+      "type": "PulidFluxEvaClipLoader",
+      "pos": [
+        1193.2325439453125,
+        1471.416015625
+      ],
+      "size": [
+        327.5999755859375,
+        26
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "EVA_CLIP",
+          "type": "EVA_CLIP",
+          "links": [
+            405
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxEvaClipLoader"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 241,
+      "type": "PulidFluxInsightFaceLoader",
+      "pos": [
+        1175.034912109375,
+        1557.2330322265625
+      ],
+      "size": [
+        365.4000244140625,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FACEANALYSIS",
+          "type": "FACEANALYSIS",
+          "links": [
+            406
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PulidFluxInsightFaceLoader"
+      },
+      "widgets_values": [
+        "CPU"
+      ]
+    }
+  ],
+  "links": [
+    [
+      360,
+      208,
+      0,
+      209,
+      0,
+      "CLIP"
+    ],
+    [
+      361,
+      208,
+      0,
+      210,
+      0,
+      "CLIP"
+    ],
+    [
+      362,
+      210,
+      0,
+      211,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      363,
+      209,
+      0,
+      211,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      372,
+      211,
+      0,
+      218,
+      0,
+      "LATENT"
+    ],
+    [
+      373,
+      219,
+      0,
+      218,
+      1,
+      "VAE"
+    ],
+    [
+      374,
+      218,
+      0,
+      220,
+      0,
+      "IMAGE"
+    ],
+    [
+      376,
+      222,
+      0,
+      211,
+      3,
+      "LATENT"
+    ],
+    [
+      402,
+      207,
+      0,
+      238,
+      0,
+      "MODEL"
+    ],
+    [
+      403,
+      238,
+      0,
+      211,
+      0,
+      "MODEL"
+    ],
+    [
+      404,
+      239,
+      0,
+      238,
+      1,
+      "PULIDFLUX"
+    ],
+    [
+      405,
+      240,
+      0,
+      238,
+      2,
+      "EVA_CLIP"
+    ],
+    [
+      406,
+      241,
+      0,
+      238,
+      3,
+      "FACEANALYSIS"
+    ],
+    [
+      407,
+      242,
+      0,
+      238,
+      4,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8093303894832422,
+      "offset": [
+        -670.9267956204874,
+        -1320.9242919805495
+      ]
+    },
+    "workspace_info": {
+      "id": "wj8ZpCiIPAG2BZFJdw9nf",
+      "saveLock": false,
+      "cloudID": null,
+      "coverMediaPath": null
+    },
+    "ue_links": [],
+    "node_versions": {
+      "comfy-core": "0.3.26",
+      "ComfyUI_PuLID_Flux_ll": "5f1e91d1d66884dd2b43a6e3e8e0c8a78638fa35"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
