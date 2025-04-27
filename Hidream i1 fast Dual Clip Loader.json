@@ -1,0 +1,472 @@
+{
+  "id": "e1e507a3-2a65-4b56-bac9-9f4c584a9fd2",
+  "revision": 0,
+  "last_node_id": 31,
+  "last_link_id": 30,
+  "nodes": [
+    {
+      "id": 22,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        1028.609130859375,
+        461.2643127441406
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        3
+      ]
+    },
+    {
+      "id": 27,
+      "type": "EmptySD3LatentImage",
+      "pos": [
+        1460.615234375,
+        978.7327880859375
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptySD3LatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ]
+    },
+    {
+      "id": 29,
+      "type": "VAELoader",
+      "pos": [
+        1750.8101806640625,
+        792.7821044921875
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            27
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "ae.safetensors"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "VAEDecode",
+      "pos": [
+        2130.224365234375,
+        476.2905578613281
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 26
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 27
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 26,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1019.5221557617188,
+        840.0431518554688
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            24
+          ]
+        }
+      ],
+      "title": "Negative Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "blurry, bad quality"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "SaveImage",
+      "pos": [
+        2403.5146484375,
+        476.2907409667969
+      ],
+      "size": [
+        667.5,
+        596.25
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 28
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1022.0347290039062,
+        592.744140625
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "title": "Positive Prompt",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A ginger cat sits at a small table in a bustling, slightly worn cafeteria. It delicately holds a miniature teacup with its paw, its eyes focused intently on the warm liquid. The steam from the teacup swirls in the soft, warm light. Surrounding the cat, blurred figures of humans and other animals create a whimsical, surreal scene. The colors are muted and warm, conveying a sense of comfort and everyday charm. A high-quality, cinematic shot captures this moment."
+      ]
+    },
+    {
+      "id": 31,
+      "type": "DualCLIPLoader",
+      "pos": [
+        650.953857421875,
+        616.3921508789062
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            29,
+            30
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DualCLIPLoader"
+      },
+      "widgets_values": [
+        "llama_3.1_8b_instruct_fp8_scaled.safetensors",
+        "t5xxl_fp8_e4m3fn_scaled.safetensors",
+        "hidream",
+        "default"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "UNETLoader",
+      "pos": [
+        639.803466796875,
+        460.32525634765625
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "hidream_i1_fast_fp8.safetensors",
+        "default"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "KSampler",
+      "pos": [
+        1747.0528564453125,
+        465.02081298828125
+      ],
+      "size": [
+        315,
+        262
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 20
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 23
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 24
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        656565551885940,
+        "randomize",
+        16,
+        1,
+        "lcm",
+        "simple",
+        1
+      ]
+    }
+  ],
+  "links": [
+    [
+      19,
+      21,
+      0,
+      22,
+      0,
+      "MODEL"
+    ],
+    [
+      20,
+      22,
+      0,
+      23,
+      0,
+      "MODEL"
+    ],
+    [
+      23,
+      25,
+      0,
+      23,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      24,
+      26,
+      0,
+      23,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      25,
+      27,
+      0,
+      23,
+      3,
+      "LATENT"
+    ],
+    [
+      26,
+      23,
+      0,
+      28,
+      0,
+      "LATENT"
+    ],
+    [
+      27,
+      29,
+      0,
+      28,
+      1,
+      "VAE"
+    ],
+    [
+      28,
+      28,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      31,
+      0,
+      25,
+      0,
+      "CLIP"
+    ],
+    [
+      30,
+      31,
+      0,
+      26,
+      0,
+      "CLIP"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.88,
+      "offset": [
+        -570.1583809166037,
+        -338.89214876032923
+      ]
+    },
+    "frontendVersion": "1.17.11"
+  },
+  "version": 0.4
+}
