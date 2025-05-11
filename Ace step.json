@@ -1,0 +1,410 @@
+{
+  "id": "cd938a92-30e6-40a1-92e0-a9a8d2d416cd",
+  "revision": 0,
+  "last_node_id": 17,
+  "last_link_id": 19,
+  "nodes": [
+    {
+      "id": 11,
+      "type": "ModelSamplingSD3",
+      "pos": [
+        544,
+        65
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelSamplingSD3"
+      },
+      "widgets_values": [
+        4.000000000000001
+      ]
+    },
+    {
+      "id": 14,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        942,
+        280
+      ],
+      "size": [
+        197.66665649414062,
+        26
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 14
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 15,
+      "type": "EmptyAceStepLatentAudio",
+      "pos": [
+        927,
+        532
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            16
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyAceStepLatentAudio"
+      },
+      "widgets_values": [
+        240,
+        1
+      ]
+    },
+    {
+      "id": 12,
+      "type": "KSampler",
+      "pos": [
+        1226,
+        154
+      ],
+      "size": [
+        270,
+        262
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 11
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 13
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 15
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 16
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        323113959977857,
+        "randomize",
+        50,
+        4,
+        "res_multistep",
+        "simple",
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        151,
+        134
+      ],
+      "size": [
+        270,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            10
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            12
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "ace_step_v1_3.5b.safetensors"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        1531.5400390625,
+        149.84994506835938
+      ],
+      "size": [
+        150.9166717529297,
+        46
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 17
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 17,
+      "type": "SaveAudio",
+      "pos": [
+        1727.469970703125,
+        151.74000549316406
+      ],
+      "size": [
+        270,
+        112
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 19
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "audio/ComfyUI"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "TextEncodeAceStepAudio",
+      "pos": [
+        504,
+        186
+      ],
+      "size": [
+        399,
+        390
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            13,
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeAceStepAudio"
+      },
+      "widgets_values": [
+        "female voice, pop, trance, electronic, birds singing in background\n",
+        "[inst]\n\n[Verse 1]\nYou grew where no one saw the light\nIn the cracks between the stone\nA whisper in the morning sun\nSoft, but standing all alone\n\n[Chorus]\nLike a flower in the rain\nYou bloom through every pain\nPetals reaching out so wide\nEven when the world won't try\nOh, you're stronger than they know\nAnd you still grow\n\n[Verse 2]\nThe wind may bend you, try to break\nBut roots go deeper when you ache\nColors bursting through the grey\nYou find your own sweet kind of way\n\n[Chorus]\nLike a flower in the rain\nYou bloom through every pain\nPetals reaching out so wide\nEven when the world won't try\nOh, you're braver than they see\nWild and free\n\n[Bridge]\nSeasons change and so do skies\nBut you keep dancing, never hide\nEven storms can’t steal your fire\nYou rise, a blooming choir",
+        0.9000000000000001
+      ]
+    }
+  ],
+  "links": [
+    [
+      10,
+      10,
+      0,
+      11,
+      0,
+      "MODEL"
+    ],
+    [
+      11,
+      11,
+      0,
+      12,
+      0,
+      "MODEL"
+    ],
+    [
+      12,
+      10,
+      1,
+      13,
+      0,
+      "CLIP"
+    ],
+    [
+      13,
+      13,
+      0,
+      12,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      14,
+      13,
+      0,
+      14,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      14,
+      0,
+      12,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      16,
+      15,
+      0,
+      12,
+      3,
+      "LATENT"
+    ],
+    [
+      17,
+      12,
+      0,
+      16,
+      0,
+      "LATENT"
+    ],
+    [
+      18,
+      10,
+      2,
+      16,
+      1,
+      "VAE"
+    ],
+    [
+      19,
+      16,
+      0,
+      17,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.18.9"
+  },
+  "version": 0.4
+}
