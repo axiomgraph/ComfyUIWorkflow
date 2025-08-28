@@ -2,6 +2,10 @@
 
 https://www.youtube.com/@AxiomGraph
 
+Qwen Image Union Diffsynth Lora OpenPose
+
+https://www.youtube.com/watch?v=xje0MSg85F4
+
 Using Cosmos Predict2 Text2 Image 2B & 14B
 
 https://www.youtube.com/watch?v=V8lfpsnr2pg
@@ -29,4 +33,5 @@ https://www.youtube.com/watch?v=0AWV1Bk3Mn8
 Kokoro Text To Speech
 
 https://www.youtube.com/watch?v=y6pqrg6HQIs
+
 
