@@ -23,15 +23,13 @@ Using HiDream
 https://www.youtube.com/watch?v=F2y82HCHVyU
 
 How to Use Flux1 Dev ControlNet Union Pro
-
 https://www.youtube.com/watch?v=FSf8G7doX8U
 
 Using Infinite You ON ComfyUI
-
 https://www.youtube.com/watch?v=0AWV1Bk3Mn8
 
 Kokoro Text To Speech
-
 https://www.youtube.com/watch?v=y6pqrg6HQIs
 
-
+Qwen3 ASR Tutorial
+https://www.youtube.com/watch?v=aW2VmmSkWcM
