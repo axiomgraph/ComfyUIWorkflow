@@ -1,0 +1,507 @@
+{
+  "id": "ec08dbf3-0f2c-4d57-9641-18d81bbb5513",
+  "revision": 0,
+  "last_node_id": 45,
+  "last_link_id": 73,
+  "nodes": [
+    {
+      "id": 36,
+      "type": "SRTAdvancedOptionsNode",
+      "pos": [
+        -1797.7468652086245,
+        236.88403909459703
+      ],
+      "size": [
+        432.915040110498,
+        887
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "srt_options",
+          "type": "SRT_OPTIONS",
+          "links": [
+            59
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "tts_audio_suite",
+        "ver": "4.27.3",
+        "Node name for S&R": "SRTAdvancedOptionsNode"
+      },
+      "widgets_values": [
+        "Broadcast",
+        "smart",
+        false,
+        false,
+        "Auto",
+        42,
+        2,
+        6,
+        1,
+        0.6,
+        17,
+        true,
+        1500,
+        2,
+        0.6,
+        12,
+        2,
+        0.4,
+        true,
+        1,
+        true,
+        2,
+        2,
+        true,
+        3,
+        3,
+        "a,an,the,to,of,and,or,im,i'm,you,you're,we,they,he,she,it",
+        true,
+        2,
+        1.5,
+        true,
+        1.2,
+        "what,why,how,where,who,which,when",
+        true,
+        true,
+        false,
+        ""
+      ]
+    },
+    {
+      "id": 4,
+      "type": "Qwen3TTSEngineNode",
+      "pos": [
+        -2268.370787258279,
+        -141.29403723045968
+      ],
+      "size": [
+        400,
+        736
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "TTS_engine",
+          "type": "TTS_ENGINE",
+          "links": [
+            60
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "tts_audio_suite",
+        "ver": "4.20.16",
+        "Node name for S&R": "Qwen3TTSEngineNode"
+      },
+      "widgets_values": [
+        "1.7B",
+        "auto",
+        "None (Zero-shot / Custom)",
+        "Auto",
+        "",
+        50,
+        1,
+        0.9,
+        1.05,
+        2048,
+        "auto",
+        "sage_attn",
+        false,
+        false,
+        false,
+        "default",
+        true,
+        "English",
+        "Translate the speech from {source_language} into {target_language} text. Return only the translated text."
+      ]
+    },
+    {
+      "id": 32,
+      "type": "TextToSRTBuilderNode",
+      "pos": [
+        -1070.0710573139093,
+        -147.32765440040296
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "asr_timing_data",
+          "shape": 7,
+          "type": "STRING",
+          "link": 65
+        },
+        {
+          "name": "srt_options",
+          "shape": 7,
+          "type": "SRT_OPTIONS",
+          "link": 59
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 66
+        }
+      ],
+      "outputs": [
+        {
+          "name": "srt",
+          "type": "STRING",
+          "links": [
+            71
+          ]
+        },
+        {
+          "name": "timestamps",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "tts_audio_suite",
+        "ver": "4.27.3",
+        "Node name for S&R": "TextToSRTBuilderNode"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 37,
+      "type": "LoadAudio",
+      "pos": [
+        -1745.9749678999547,
+        -41.245915608247664
+      ],
+      "size": [
+        282.798828125,
+        136
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            61
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "2026-01-24-20h28m18s_seed578495692_Hey everyone In this video, I will show you how t.wav",
+        null,
+        ""
+      ]
+    },
+    {
+      "id": 38,
+      "type": "UnifiedASRTranscribeNode",
+      "pos": [
+        -1394.3324568156875,
+        -146.0368195718469
+      ],
+      "size": [
+        270,
+        218
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "engine",
+          "type": "TTS_ENGINE",
+          "link": 60
+        },
+        {
+          "name": "audio",
+          "type": "*",
+          "link": 61
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            66,
+            73
+          ]
+        },
+        {
+          "name": "asr_timing_data",
+          "type": "STRING",
+          "links": [
+            65
+          ]
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "tts_audio_suite",
+        "ver": "4.27.3",
+        "Node name for S&R": "UnifiedASRTranscribeNode"
+      },
+      "widgets_values": [
+        "Auto",
+        "transcribe",
+        "none",
+        30,
+        2,
+        true
+      ]
+    },
+    {
+      "id": 45,
+      "type": "ComfySwitchNode",
+      "pos": [
+        -948.1102622811429,
+        118.28132556134665
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "on_false",
+          "type": "STRING",
+          "link": 73
+        },
+        {
+          "name": "on_true",
+          "type": "STRING",
+          "link": 71
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "STRING",
+          "links": [
+            72
+          ]
+        }
+      ],
+      "title": "Switch (Save Subtitle)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0",
+        "Node name for S&R": "ComfySwitchNode"
+      },
+      "widgets_values": [
+        false
+      ]
+    },
+    {
+      "id": 42,
+      "type": "PreviewAny",
+      "pos": [
+        -621.9341790406353,
+        -138.97883715992697
+      ],
+      "size": [
+        661.4422034141245,
+        862.8231539056716
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 72
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            68
+          ]
+        }
+      ],
+      "title": "Preview as Text (Subtitle)",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0",
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [
+        null,
+        null,
+        false
+      ]
+    },
+    {
+      "id": 43,
+      "type": "SaveStringKJ",
+      "pos": [
+        88.03303457784217,
+        -141.06095997332562
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "string",
+          "type": "STRING",
+          "link": 68
+        }
+      ],
+      "outputs": [
+        {
+          "name": "filename",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "0cecab01f032396455f0e4743b4266548e2ff5b2",
+        "Node name for S&R": "SaveStringKJ"
+      },
+      "widgets_values": [
+        "text",
+        "output",
+        ".txt"
+      ]
+    }
+  ],
+  "links": [
+    [
+      59,
+      36,
+      0,
+      32,
+      1,
+      "SRT_OPTIONS"
+    ],
+    [
+      60,
+      4,
+      0,
+      38,
+      0,
+      "TTS_ENGINE"
+    ],
+    [
+      61,
+      37,
+      0,
+      38,
+      1,
+      "AUDIO"
+    ],
+    [
+      65,
+      38,
+      1,
+      32,
+      0,
+      "STRING"
+    ],
+    [
+      66,
+      38,
+      0,
+      32,
+      2,
+      "STRING"
+    ],
+    [
+      68,
+      42,
+      0,
+      43,
+      0,
+      "STRING"
+    ],
+    [
+      71,
+      32,
+      0,
+      45,
+      1,
+      "STRING"
+    ],
+    [
+      72,
+      45,
+      0,
+      42,
+      0,
+      "STRING"
+    ],
+    [
+      73,
+      38,
+      0,
+      45,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 0.7665481419568199,
+      "offset": [
+        2244.342114124621,
+        398.5712088082663
+      ]
+    },
+    "frontendVersion": "1.45.15",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
