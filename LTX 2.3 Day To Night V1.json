@@ -1,8 +1,8 @@
 {
   "id": "07824bbb-6672-4bb0-ac36-4313a519e35b",
   "revision": 0,
-  "last_node_id": 523,
-  "last_link_id": 1272,
+  "last_node_id": 524,
+  "last_link_id": 1276,
   "nodes": [
     {
       "id": 287,
@@ -1659,81 +1659,6 @@
       "bgcolor": "#535"
     },
     {
-      "id": 450,
-      "type": "009e72c0-0dd5-474f-b751-7eaec7dd8ad8",
-      "pos": [
-        -1261.6912261585117,
-        4510.986513493856
-      ],
-      "size": [
-        262.9703125,
-        190
-      ],
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "label": "width",
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            1241
-          ]
-        },
-        {
-          "label": "height",
-          "name": "INT_1",
-          "type": "INT",
-          "links": [
-            1242
-          ]
-        },
-        {
-          "label": "FPS (float)",
-          "name": "FLOAT",
-          "type": "FLOAT",
-          "links": [
-            1079,
-            1081,
-            1251
-          ]
-        },
-        {
-          "label": "FPS (int)",
-          "name": "INT_3",
-          "type": "INT",
-          "links": [
-            1101
-          ]
-        }
-      ],
-      "properties": {
-        "proxyWidgets": [
-          [
-            "442",
-            "choice"
-          ],
-          [
-            "445",
-            "value"
-          ],
-          [
-            "447",
-            "value"
-          ],
-          [
-            "452",
-            "value"
-          ]
-        ],
-        "cnr_id": "comfy-core",
-        "ver": "0.25.0"
-      },
-      "widgets_values": []
-    },
-    {
       "id": 316,
       "type": "CFGGuider",
       "pos": [
@@ -1866,6 +1791,81 @@
         "auto",
         "auto"
       ]
+    },
+    {
+      "id": 450,
+      "type": "009e72c0-0dd5-474f-b751-7eaec7dd8ad8",
+      "pos": [
+        -1261.6912261585117,
+        4510.986513493856
+      ],
+      "size": [
+        262.9703125,
+        190
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "width",
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            1241
+          ]
+        },
+        {
+          "label": "height",
+          "name": "INT_1",
+          "type": "INT",
+          "links": [
+            1242
+          ]
+        },
+        {
+          "label": "FPS (float)",
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            1079,
+            1081,
+            1251
+          ]
+        },
+        {
+          "label": "FPS (int)",
+          "name": "INT_3",
+          "type": "INT",
+          "links": [
+            1101
+          ]
+        }
+      ],
+      "properties": {
+        "proxyWidgets": [
+          [
+            "442",
+            "choice"
+          ],
+          [
+            "445",
+            "value"
+          ],
+          [
+            "447",
+            "value"
+          ],
+          [
+            "452",
+            "value"
+          ]
+        ],
+        "cnr_id": "comfy-core",
+        "ver": "0.25.0"
+      },
+      "widgets_values": []
     }
   ],
   "links": [
@@ -2399,8 +2399,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 33,
-          "lastNodeId": 523,
-          "lastLinkId": 1272,
+          "lastNodeId": 524,
+          "lastLinkId": 1276,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -2694,74 +2694,49 @@
             ]
           },
           {
-            "id": 443,
-            "type": "ComfyMathExpression",
+            "id": 442,
+            "type": "CustomCombo",
             "pos": [
-              -811.3643832702205,
-              4824.574415009015
+              -1236.8107513503505,
+              4811.48324913637
             ],
             "size": [
-              400,
-              200
+              270,
+              174
             ],
             "flags": {},
-            "order": 5,
+            "order": 3,
             "mode": 0,
-            "inputs": [
-              {
-                "label": "a",
-                "localized_name": "values.a",
-                "name": "values.a",
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": 1061
-              },
-              {
-                "label": "b",
-                "localized_name": "values.b",
-                "name": "values.b",
-                "shape": 7,
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": 1063
-              },
-              {
-                "label": "c",
-                "localized_name": "values.c",
-                "name": "values.c",
-                "shape": 7,
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": null
-              }
-            ],
+            "inputs": [],
             "outputs": [
               {
-                "localized_name": "FLOAT",
-                "name": "FLOAT",
-                "type": "FLOAT",
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
                 "links": null
               },
               {
-                "localized_name": "INT",
-                "name": "INT",
+                "localized_name": "INDEX",
+                "name": "INDEX",
                 "type": "INT",
                 "links": [
-                  1067
+                  1061,
+                  1064
                 ]
-              },
-              {
-                "localized_name": "BOOL",
-                "name": "BOOL",
-                "type": "BOOLEAN",
-                "links": null
               }
             ],
-            "title": "Math Expression (width)",
             "properties": {
-              "Node name for S&R": "ComfyMathExpression",
+              "Node name for S&R": "CustomCombo",
               "cnr_id": "comfy-core",
               "ver": "0.25.0"
             },
             "widgets_values": [
-              "(a == 0) * 768 + (a == 1) * 448 + ( a ==3) * b"
+              "Custom Resolution",
+              2,
+              "448p Landscape",
+              "448p Portrait",
+              "Custom Resolution",
+              ""
             ]
           },
           {
@@ -2832,53 +2807,78 @@
               "ver": "0.25.0"
             },
             "widgets_values": [
-              "(a == 0) * 448 + (a == 1) * 768 + ( a == 3) * b"
+              "(a == 0) * 448 + (a == 1) * 768 + (a == 2) * b"
             ]
           },
           {
-            "id": 442,
-            "type": "CustomCombo",
+            "id": 443,
+            "type": "ComfyMathExpression",
             "pos": [
-              -1236.8107513503505,
-              4811.48324913637
+              -811.3643832702205,
+              4824.574415009015
             ],
             "size": [
-              270,
-              174
+              400,
+              200
             ],
             "flags": {},
-            "order": 3,
+            "order": 5,
             "mode": 0,
-            "inputs": [],
+            "inputs": [
+              {
+                "label": "a",
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 1061
+              },
+              {
+                "label": "b",
+                "localized_name": "values.b",
+                "name": "values.b",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 1063
+              },
+              {
+                "label": "c",
+                "localized_name": "values.c",
+                "name": "values.c",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": null
+              }
+            ],
             "outputs": [
               {
-                "localized_name": "STRING",
-                "name": "STRING",
-                "type": "STRING",
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
                 "links": null
               },
               {
-                "localized_name": "INDEX",
-                "name": "INDEX",
+                "localized_name": "INT",
+                "name": "INT",
                 "type": "INT",
                 "links": [
-                  1061,
-                  1064
+                  1067
                 ]
+              },
+              {
+                "localized_name": "BOOL",
+                "name": "BOOL",
+                "type": "BOOLEAN",
+                "links": null
               }
             ],
+            "title": "Math Expression (width)",
             "properties": {
-              "Node name for S&R": "CustomCombo",
+              "Node name for S&R": "ComfyMathExpression",
               "cnr_id": "comfy-core",
               "ver": "0.25.0"
             },
             "widgets_values": [
-              "448p Landscape",
-              0,
-              "448p Landscape",
-              "448p Portrait",
-              "Custom Resolution",
-              ""
+              "(a == 0) * 768 + (a == 1) * 448 + (a == 2) * b"
             ]
           }
         ],
@@ -2964,8 +2964,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 33,
-          "lastNodeId": 523,
-          "lastLinkId": 1272,
+          "lastNodeId": 524,
+          "lastLinkId": 1276,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -3826,10 +3826,10 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "ds": {
-      "scale": 0.6022918873159114,
+      "scale": 0.7287731836522531,
       "offset": [
-        2263.937742173524,
-        -3991.6478519044877
+        1770.3116959442614,
+        -3893.514500299844
       ]
     }
   },
