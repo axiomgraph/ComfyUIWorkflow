@@ -1,8 +1,8 @@
 {
   "id": "07824bbb-6672-4bb0-ac36-4313a519e35b",
   "revision": 0,
-  "last_node_id": 513,
-  "last_link_id": 1239,
+  "last_node_id": 514,
+  "last_link_id": 1242,
   "nodes": [
     {
       "id": 287,
@@ -60,9 +60,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "SamplerCustomAdvanced",
         "cnr_id": "comfy-core",
         "ver": "0.3.60",
-        "Node name for S&R": "SamplerCustomAdvanced",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -98,9 +98,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "UNETLoader",
         "cnr_id": "comfy-core",
-        "ver": "0.16.4",
-        "Node name for S&R": "UNETLoader"
+        "ver": "0.16.4"
       },
       "widgets_values": [
         "ltx-2.3-22b-distilled-1.1_transformer_only_fp8_scaled.safetensors",
@@ -132,9 +132,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "RandomNoise",
         "cnr_id": "comfy-core",
         "ver": "0.3.56",
-        "Node name for S&R": "RandomNoise",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -181,9 +181,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CLIPTextEncode",
         "cnr_id": "comfy-core",
         "ver": "0.3.56",
-        "Node name for S&R": "CLIPTextEncode",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -234,9 +234,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LTXVConcatAVLatent",
         "cnr_id": "comfy-core",
         "ver": "0.7.0",
-        "Node name for S&R": "LTXVConcatAVLatent",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -272,9 +272,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "KSamplerSelect",
         "cnr_id": "comfy-core",
         "ver": "0.3.56",
-        "Node name for S&R": "KSamplerSelect",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -340,9 +340,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LTXVConditioning",
         "cnr_id": "comfy-core",
         "ver": "0.3.56",
-        "Node name for S&R": "LTXVConditioning",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -396,9 +396,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CFGGuider",
         "cnr_id": "comfy-core",
         "ver": "0.3.64",
-        "Node name for S&R": "CFGGuider",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -436,9 +436,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "ManualSigmas",
         "cnr_id": "comfy-core",
         "ver": "0.14.1",
-        "Node name for S&R": "ManualSigmas",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -489,9 +489,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LTXVSeparateAVLatent",
         "cnr_id": "comfy-core",
         "ver": "0.5.1",
-        "Node name for S&R": "LTXVSeparateAVLatent",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -553,9 +553,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LTXVCropGuides",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "LTXVCropGuides"
+        "ver": "0.25.0"
       },
       "widgets_values": []
     },
@@ -595,9 +595,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAEDecode",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "VAEDecode"
+        "ver": "0.25.0"
       },
       "widgets_values": []
     },
@@ -638,9 +638,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LTXVAudioVAEDecode",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "LTXVAudioVAEDecode"
+        "ver": "0.25.0"
       },
       "widgets_values": []
     },
@@ -689,9 +689,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CreateVideo",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "CreateVideo"
+        "ver": "0.25.0"
       },
       "widgets_values": [
         30,
@@ -729,9 +729,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "GetICLoRAParameters",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "GetICLoRAParameters"
+        "ver": "0.25.0"
       },
       "widgets_values": []
     },
@@ -761,9 +761,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "DualCLIPLoader",
         "cnr_id": "comfy-core",
-        "ver": "0.16.4",
-        "Node name for S&R": "DualCLIPLoader"
+        "ver": "0.16.4"
       },
       "widgets_values": [
         "gemma_3_12B_it_fp8_scaled.safetensors",
@@ -798,9 +798,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAELoaderKJ",
         "cnr_id": "comfyui-kjnodes",
-        "ver": "1.2.9",
-        "Node name for S&R": "VAELoaderKJ"
+        "ver": "1.2.9"
       },
       "widgets_values": [
         "LTX23_video_vae_bf16.safetensors",
@@ -835,9 +835,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VAELoaderKJ",
         "cnr_id": "comfyui-kjnodes",
-        "ver": "1.2.9",
-        "Node name for S&R": "VAELoaderKJ"
+        "ver": "1.2.9"
       },
       "widgets_values": [
         "LTX23_audio_vae_bf16.safetensors",
@@ -895,9 +895,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "EmptyLTXVLatentVideo",
         "cnr_id": "comfy-core",
         "ver": "0.3.60",
-        "Node name for S&R": "EmptyLTXVLatentVideo",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -961,9 +961,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LTXVEmptyLatentAudio",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "LTXVEmptyLatentAudio"
+        "ver": "0.25.0"
       },
       "widgets_values": [
         121,
@@ -1008,9 +1008,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LTXVAudioVAEEncode",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "LTXVAudioVAEEncode"
+        "ver": "0.25.0"
       },
       "widgets_values": []
     },
@@ -1065,9 +1065,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LTXVSetAudioRefTokens",
         "cnr_id": "ComfyUI-LTXVideo",
-        "ver": "4f45fd6c222eb06eb3e46605da62e7c889e4be5c",
-        "Node name for S&R": "LTXVSetAudioRefTokens"
+        "ver": "4f45fd6c222eb06eb3e46605da62e7c889e4be5c"
       },
       "widgets_values": []
     },
@@ -1103,9 +1103,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "LoraLoaderModelOnly"
+        "ver": "0.25.0"
       },
       "widgets_values": [
         "ltx-2.3-22b-ic-lora-colorization-0.9.safetensors",
@@ -1143,9 +1143,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LTXVPreprocess",
         "cnr_id": "comfy-core",
         "ver": "0.7.0",
-        "Node name for S&R": "LTXVPreprocess",
         "enableTabs": false,
         "tabWidth": 65,
         "tabXOffset": 10,
@@ -1226,9 +1226,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "ImageResizeKJv2",
         "cnr_id": "comfyui-kjnodes",
-        "ver": "0cecab01f032396455f0e4743b4266548e2ff5b2",
-        "Node name for S&R": "ImageResizeKJv2"
+        "ver": "0cecab01f032396455f0e4743b4266548e2ff5b2"
       },
       "widgets_values": [
         512,
@@ -1280,9 +1280,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "CLIPTextEncode",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "CLIPTextEncode"
+        "ver": "0.25.0"
       },
       "widgets_values": [
         ""
@@ -1367,9 +1367,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "LTXVAddGuide",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "LTXVAddGuide"
+        "ver": "0.25.0"
       },
       "widgets_values": [
         0,
@@ -1413,9 +1413,9 @@
       ],
       "title": "Switch (Use Original Audio)",
       "properties": {
+        "Node name for S&R": "ComfySwitchNode",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "ComfySwitchNode"
+        "ver": "0.25.0"
       },
       "widgets_values": [
         true
@@ -1488,9 +1488,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "PreviewAny",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "PreviewAny"
+        "ver": "0.25.0"
       },
       "widgets_values": [
         null,
@@ -1562,9 +1562,9 @@
         }
       ],
       "properties": {
+        "Node name for S&R": "VHS_LoadVideo",
         "cnr_id": "comfyui-videohelpersuite",
-        "ver": "1.7.9",
-        "Node name for S&R": "VHS_LoadVideo"
+        "ver": "1.7.9"
       },
       "widgets_values": {
         "video": "blackandwhite04.mp4",
@@ -1613,17 +1613,96 @@
           "link": 946
         }
       ],
-      "outputs": [],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
       "properties": {
+        "Node name for S&R": "SaveVideo",
         "cnr_id": "comfy-core",
-        "ver": "0.25.0",
-        "Node name for S&R": "SaveVideo"
+        "ver": "0.25.0"
       },
       "widgets_values": [
         "video/ComfyUI",
         "auto",
         "auto"
       ]
+    },
+    {
+      "id": 467,
+      "type": "09e7e578-fc0a-47d4-95b3-de855076b65a",
+      "pos": [
+        -875.3598590112542,
+        3439.618879293772
+      ],
+      "size": [
+        588.9533044202526,
+        466.10340366228274
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 1212
+        },
+        {
+          "label": "prompt",
+          "name": "value",
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "generated_text",
+          "type": "STRING",
+          "links": [
+            1117,
+            1190
+          ]
+        }
+      ],
+      "properties": {
+        "proxyWidgets": [
+          [
+            "397",
+            "value"
+          ],
+          [
+            "468",
+            "switch"
+          ],
+          [
+            "395",
+            "clip_name"
+          ],
+          [
+            "512",
+            "max_length"
+          ],
+          [
+            "512",
+            "sampling_mode.temperature"
+          ],
+          [
+            "512",
+            "sampling_mode.seed"
+          ]
+        ],
+        "cnr_id": "comfy-core",
+        "ver": "0.25.0"
+      },
+      "widgets_values": []
     },
     {
       "id": 450,
@@ -1694,79 +1773,6 @@
           [
             "452",
             "value"
-          ]
-        ],
-        "cnr_id": "comfy-core",
-        "ver": "0.25.0"
-      },
-      "widgets_values": []
-    },
-    {
-      "id": 467,
-      "type": "09e7e578-fc0a-47d4-95b3-de855076b65a",
-      "pos": [
-        -875.3598590112542,
-        3439.618879293772
-      ],
-      "size": [
-        588.9533044202526,
-        466.10340366228274
-      ],
-      "flags": {},
-      "order": 16,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "video",
-          "shape": 7,
-          "type": "IMAGE",
-          "link": 1212
-        },
-        {
-          "label": "prompt",
-          "name": "value",
-          "type": "STRING",
-          "widget": {
-            "name": "value"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "generated_text",
-          "type": "STRING",
-          "links": [
-            1117,
-            1190
-          ]
-        }
-      ],
-      "properties": {
-        "proxyWidgets": [
-          [
-            "397",
-            "value"
-          ],
-          [
-            "468",
-            "switch"
-          ],
-          [
-            "395",
-            "clip_name"
-          ],
-          [
-            "512",
-            "max_length"
-          ],
-          [
-            "512",
-            "sampling_mode.temperature"
-          ],
-          [
-            "512",
-            "sampling_mode.seed"
           ]
         ],
         "cnr_id": "comfy-core",
@@ -2282,8 +2288,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 33,
-          "lastNodeId": 513,
-          "lastLinkId": 1239,
+          "lastNodeId": 514,
+          "lastLinkId": 1242,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -2402,9 +2408,9 @@
             ],
             "title": "height",
             "properties": {
+              "Node name for S&R": "PrimitiveInt",
               "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "PrimitiveInt"
+              "ver": "0.25.0"
             },
             "widgets_values": [
               720,
@@ -2444,9 +2450,9 @@
               }
             ],
             "properties": {
+              "Node name for S&R": "CustomCombo",
               "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "CustomCombo"
+              "ver": "0.25.0"
             },
             "widgets_values": [
               "544p Landscape",
@@ -2495,155 +2501,13 @@
             ],
             "title": "width",
             "properties": {
+              "Node name for S&R": "PrimitiveInt",
               "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "PrimitiveInt"
+              "ver": "0.25.0"
             },
             "widgets_values": [
               1280,
               "fixed"
-            ]
-          },
-          {
-            "id": 443,
-            "type": "ComfyMathExpression",
-            "pos": [
-              -811.3643832702205,
-              4824.574415009015
-            ],
-            "size": [
-              400,
-              200
-            ],
-            "flags": {},
-            "order": 5,
-            "mode": 0,
-            "inputs": [
-              {
-                "label": "a",
-                "localized_name": "values.a",
-                "name": "values.a",
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": 1061
-              },
-              {
-                "label": "b",
-                "localized_name": "values.b",
-                "name": "values.b",
-                "shape": 7,
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": 1063
-              },
-              {
-                "label": "c",
-                "localized_name": "values.c",
-                "name": "values.c",
-                "shape": 7,
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": null
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "FLOAT",
-                "name": "FLOAT",
-                "type": "FLOAT",
-                "links": null
-              },
-              {
-                "localized_name": "INT",
-                "name": "INT",
-                "type": "INT",
-                "links": [
-                  1067
-                ]
-              },
-              {
-                "localized_name": "BOOL",
-                "name": "BOOL",
-                "type": "BOOLEAN",
-                "links": null
-              }
-            ],
-            "title": "Math Expression (width)",
-            "properties": {
-              "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "ComfyMathExpression"
-            },
-            "widgets_values": [
-              "(a == 0) * 960 + (a == 1) * 544 + ( a ==3) * b"
-            ]
-          },
-          {
-            "id": 446,
-            "type": "ComfyMathExpression",
-            "pos": [
-              -810.9482606944305,
-              5073.319727544807
-            ],
-            "size": [
-              400,
-              200
-            ],
-            "flags": {},
-            "order": 4,
-            "mode": 0,
-            "inputs": [
-              {
-                "label": "a",
-                "localized_name": "values.a",
-                "name": "values.a",
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": 1064
-              },
-              {
-                "label": "b",
-                "localized_name": "values.b",
-                "name": "values.b",
-                "shape": 7,
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": 1065
-              },
-              {
-                "label": "c",
-                "localized_name": "values.c",
-                "name": "values.c",
-                "shape": 7,
-                "type": "FLOAT,INT,BOOLEAN",
-                "link": null
-              }
-            ],
-            "outputs": [
-              {
-                "localized_name": "FLOAT",
-                "name": "FLOAT",
-                "type": "FLOAT",
-                "links": null
-              },
-              {
-                "localized_name": "INT",
-                "name": "INT",
-                "type": "INT",
-                "links": [
-                  1068
-                ]
-              },
-              {
-                "localized_name": "BOOL",
-                "name": "BOOL",
-                "type": "BOOLEAN",
-                "links": null
-              }
-            ],
-            "title": "Math Expression (height)",
-            "properties": {
-              "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "ComfyMathExpression"
-            },
-            "widgets_values": [
-              "(a == 0) * 544 + (a == 1) * 960 + ( a == 3) * b"
             ]
           },
           {
@@ -2684,9 +2548,9 @@
             ],
             "title": "Frame Rate",
             "properties": {
+              "Node name for S&R": "PrimitiveInt",
               "cnr_id": "comfy-core",
               "ver": "0.16.3",
-              "Node name for S&R": "PrimitiveInt",
               "enableTabs": false,
               "tabWidth": 65,
               "tabXOffset": 10,
@@ -2756,12 +2620,154 @@
               }
             ],
             "properties": {
+              "Node name for S&R": "ComfyMathExpression",
               "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "ComfyMathExpression"
+              "ver": "0.25.0"
             },
             "widgets_values": [
               "a"
+            ]
+          },
+          {
+            "id": 443,
+            "type": "ComfyMathExpression",
+            "pos": [
+              -811.3643832702205,
+              4824.574415009015
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "a",
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 1061
+              },
+              {
+                "label": "b",
+                "localized_name": "values.b",
+                "name": "values.b",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 1063
+              },
+              {
+                "label": "c",
+                "localized_name": "values.c",
+                "name": "values.c",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  1067
+                ]
+              },
+              {
+                "localized_name": "BOOL",
+                "name": "BOOL",
+                "type": "BOOLEAN",
+                "links": null
+              }
+            ],
+            "title": "Math Expression (width)",
+            "properties": {
+              "Node name for S&R": "ComfyMathExpression",
+              "cnr_id": "comfy-core",
+              "ver": "0.25.0"
+            },
+            "widgets_values": [
+              "(a == 0) * 960 + (a == 1) * 544 + (a == 2) * b"
+            ]
+          },
+          {
+            "id": 446,
+            "type": "ComfyMathExpression",
+            "pos": [
+              -810.9482606944305,
+              5073.319727544807
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "a",
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 1064
+              },
+              {
+                "label": "b",
+                "localized_name": "values.b",
+                "name": "values.b",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 1065
+              },
+              {
+                "label": "c",
+                "localized_name": "values.c",
+                "name": "values.c",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "FLOAT",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "INT",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  1068
+                ]
+              },
+              {
+                "localized_name": "BOOL",
+                "name": "BOOL",
+                "type": "BOOLEAN",
+                "links": null
+              }
+            ],
+            "title": "Math Expression (height)",
+            "properties": {
+              "Node name for S&R": "ComfyMathExpression",
+              "cnr_id": "comfy-core",
+              "ver": "0.25.0"
+            },
+            "widgets_values": [
+              "(a == 0) * 544 + (a == 1) * 960 + (a == 2) * b"
             ]
           }
         ],
@@ -2847,8 +2853,8 @@
         "version": 1,
         "state": {
           "lastGroupId": 33,
-          "lastNodeId": 513,
-          "lastLinkId": 1239,
+          "lastNodeId": 514,
+          "lastLinkId": 1242,
           "lastRerouteId": 0
         },
         "revision": 0,
@@ -2968,9 +2974,9 @@
             ],
             "title": "enhance prompt",
             "properties": {
+              "Node name for S&R": "ComfySwitchNode",
               "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "ComfySwitchNode"
+              "ver": "0.25.0"
             },
             "widgets_values": [
               true
@@ -3021,9 +3027,9 @@
               }
             ],
             "properties": {
+              "Node name for S&R": "StringReplace",
               "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "StringReplace"
+              "ver": "0.25.0"
             },
             "widgets_values": [
               "",
@@ -3068,9 +3074,9 @@
               }
             ],
             "properties": {
+              "Node name for S&R": "PrimitiveStringMultiline",
               "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "PrimitiveStringMultiline"
+              "ver": "0.25.0"
             },
             "widgets_values": [
               "a man wearing yellow jacket, inside he is wearing brown checked shirt, cap is grey color, deep blue pants, background blue ocean, yellowish sand and black rock, green grass on rocks"
@@ -3139,9 +3145,9 @@
               }
             ],
             "properties": {
+              "Node name for S&R": "TextGenerate",
               "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "TextGenerate"
+              "ver": "0.25.0"
             },
             "widgets_values": [
               "",
@@ -3184,9 +3190,9 @@
               }
             ],
             "properties": {
+              "Node name for S&R": "CLIPLoader",
               "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "CLIPLoader"
+              "ver": "0.25.0"
             },
             "widgets_values": [
               "gemma4_e4b_it_fp8_scaled.safetensors",
@@ -3220,9 +3226,9 @@
               }
             ],
             "properties": {
+              "Node name for S&R": "PrimitiveStringMultiline",
               "cnr_id": "comfy-core",
-              "ver": "0.25.0",
-              "Node name for S&R": "PrimitiveStringMultiline"
+              "ver": "0.25.0"
             },
             "widgets_values": [
               "You are a visual prompt generator for image and video colorization.\n\nAnalyze the provided image or video and generate a single structured prompt.\n\nOptional User Instructions:\n{USER_PROMPT}\n\nOutput Format (Strict):\n\nReference shows <scene description>. Edited shows the same scene with natural colors restored. COLORIZE <natural color restoration description>. Subject identity, framing, and background geometry are identical to the reference; only color information differs between reference and edited.\n\nRules:\n\n* Preserve all visible subjects, objects, composition, and spatial relationships.\n* Do not invent new objects, people, animals, or background elements.\n* Focus on observable scene structure in the Reference section.\n* The primary goal is natural color restoration.\n* If Optional User Instructions are provided, use them as the primary guidance for color, clothing, materials, appearance, environment, and restoration details unless they directly contradict the visible scene structure.\n* User-specified colors and appearance details take precedence over inferred colors whenever possible.\n* Follow Optional User Instructions while preserving subject identity, composition, and scene geometry.\n* In the COLORIZE section, describe realistic natural colors, believable skin tones, clothing colors, materials, objects, and environmental surfaces as they would appear in real life.\n* Avoid artistic color grading, cinematic palettes, stylized color treatments, nostalgic tones, film emulation, or aesthetic color descriptions unless explicitly requested by the user.\n* If no Optional User Instructions are provided, infer plausible natural real-world colors from the scene.\n* Output one continuous paragraph only.\n* No bullet points, markdown, explanations, headings, or additional text.\n* Always begin the output with the words: \"Reference shows\"\n* Always include the words: \"Edited shows the same scene with natural colors restored.\"\n* Always include the word: \"COLORIZE\"\n* Always end the output with this exact sentence and nothing after it:\n* Never describe the scene as black and white, grayscale, monochrome, desaturated, or colorless.\n\nSubject identity, framing, and background geometry are identical to the reference; only color information differs between reference and edited.\n"
@@ -3709,10 +3715,10 @@
     "VHS_MetadataImage": true,
     "VHS_KeepIntermediate": true,
     "ds": {
-      "scale": 0.8029219511570056,
+      "scale": 0.7299290465063687,
       "offset": [
-        1995.2832770696657,
-        -3277.6206224279467
+        2140.871524883235,
+        -3844.145176084164
       ]
     }
   },
