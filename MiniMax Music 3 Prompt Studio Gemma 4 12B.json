@@ -1,0 +1,1145 @@
+{
+  "id": "1532f9ce-8e57-4122-9c09-8f7ddd683f76",
+  "revision": 0,
+  "last_node_id": 28,
+  "last_link_id": 48,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "PreviewAny",
+      "pos": [
+        2528.222125261602,
+        638.7529380888459
+      ],
+      "size": [
+        1092.226575570609,
+        800.2546108582578
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 12,
+      "type": "PreviewAny",
+      "pos": [
+        2529.877469530682,
+        1489.4887393040942
+      ],
+      "size": [
+        1092.226575570609,
+        800.2546108582578
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 43
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 24,
+      "type": "CLIPLoader",
+      "pos": [
+        1285.1709184721794,
+        636.1504193895846
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            36,
+            42
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "gemma4_12b_int8_convrot.safetensors",
+        "stable_diffusion",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "gemma4_12b_int8_convrot.safetensors",
+        "type": "stable_diffusion",
+        "device": "default"
+      }
+    },
+    {
+      "id": 28,
+      "type": "fc404559-81de-452f-b5c9-c7743fec0def",
+      "pos": [
+        1846.6060096764948,
+        1031.2283457084736
+      ],
+      "size": [
+        642.0386388980746,
+        534.2239675039768
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 42
+        },
+        {
+          "label": "lyrics",
+          "name": "value",
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "generated_text",
+          "type": "STRING",
+          "links": [
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "The last train disappears into the rain\nLeaving silver reflections on the rails\nI watch the city slowly close its eyes\nWhile distant thunder rolls across the sky\n\nI keep walking where the streetlights fade\nFollowing the memories we made\nEvery corner has a trace of you\nEvery shadow makes me think it's true\n\nIf I could turn the night around\nI'd find you where we lost the sound\nBefore the silence took your place\nBefore the darkness covered up your face\n\nTake me back before the morning comes\nBefore the final light is gone\nWe were more than yesterday\nWe were everything before it slipped away",
+        512,
+        0.7,
+        190
+      ],
+      "widgets_values_named": {
+        "value": "The last train disappears into the rain\nLeaving silver reflections on the rails\nI watch the city slowly close its eyes\nWhile distant thunder rolls across the sky\n\nI keep walking where the streetlights fade\nFollowing the memories we made\nEvery corner has a trace of you\nEvery shadow makes me think it's true\n\nIf I could turn the night around\nI'd find you where we lost the sound\nBefore the silence took your place\nBefore the darkness covered up your face\n\nTake me back before the morning comes\nBefore the final light is gone\nWe were more than yesterday\nWe were everything before it slipped away",
+        "max_length": 512,
+        "sampling_mode.temperature": 0.7,
+        "sampling_mode.seed": 190
+      }
+    },
+    {
+      "id": 27,
+      "type": "6f0a749c-eecc-4062-8c04-286487a6e904",
+      "pos": [
+        1848.5601861418393,
+        632.3310810074776
+      ],
+      "size": [
+        642.0722765110886,
+        320.17967316929
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 36
+        },
+        {
+          "label": "initial music description",
+          "name": "value",
+          "type": "STRING",
+          "widget": {
+            "name": "value"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "generated_text",
+          "type": "STRING",
+          "links": [
+            37
+          ]
+        }
+      ],
+      "properties": {
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "piano style, a male in his 20s, 80bpm, trance",
+        512,
+        240
+      ],
+      "widgets_values_named": {
+        "value": "piano style, a male in his 20s, 80bpm, trance",
+        "max_length": 512,
+        "sampling_mode.seed": 240
+      }
+    }
+  ],
+  "links": [
+    [
+      36,
+      24,
+      0,
+      27,
+      0,
+      "CLIP"
+    ],
+    [
+      37,
+      27,
+      0,
+      4,
+      0,
+      "STRING"
+    ],
+    [
+      42,
+      24,
+      0,
+      28,
+      0,
+      "CLIP"
+    ],
+    [
+      43,
+      28,
+      0,
+      12,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "6f0a749c-eecc-4062-8c04-286487a6e904",
+        "version": 1,
+        "state": {
+          "lastGroupId": 0,
+          "lastNodeId": 28,
+          "lastLinkId": 48,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Music Caption Builder",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            888.4818696529751,
+            598.9576852322033,
+            181.37109375,
+            128
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            2827.5958827809777,
+            598.9576852322033,
+            132.568359375,
+            68
+          ]
+        },
+        "inputs": [
+          {
+            "id": "3753b313-43b1-45f2-a3db-b0b9a0b770d1",
+            "name": "clip",
+            "type": "CLIP",
+            "linkIds": [
+              30
+            ],
+            "localized_name": "clip",
+            "pos": [
+              1045.852963402975,
+              622.9576852322033
+            ]
+          },
+          {
+            "id": "a225b76d-0267-4e98-a2ef-3ac7d13cd309",
+            "name": "value",
+            "type": "STRING",
+            "linkIds": [
+              39
+            ],
+            "label": "initial music description",
+            "pos": [
+              1045.852963402975,
+              642.9576852322033
+            ]
+          },
+          {
+            "id": "8133e3a4-74d2-4edc-9dfd-1df9ea8f68ee",
+            "name": "max_length",
+            "type": "INT",
+            "linkIds": [
+              40
+            ],
+            "pos": [
+              1045.852963402975,
+              662.9576852322033
+            ]
+          },
+          {
+            "id": "241df7d2-a956-4e4e-9e1e-c61fa07b31ce",
+            "name": "sampling_mode.seed",
+            "type": "INT",
+            "linkIds": [
+              41
+            ],
+            "pos": [
+              1045.852963402975,
+              682.9576852322033
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "2493ee23-2a3a-4cf8-bb57-c9b8ba8cdab7",
+            "name": "generated_text",
+            "type": "STRING",
+            "linkIds": [
+              33
+            ],
+            "localized_name": "generated_text",
+            "pos": [
+              2851.5958827809777,
+              622.9576852322033
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 17,
+            "type": "PrimitiveStringMultiline",
+            "pos": [
+              1076.481869652975,
+              225.8795934186253
+            ],
+            "size": [
+              525.5744747884714,
+              485.21557222217825
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  26
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "PrimitiveStringMultiline"
+            },
+            "widgets_values": [
+              "# ROLE\n\nYou are an expert music producer and music-caption rewriter for MiniMax Music 3.\n\nTransform the user's brief music description into a rich, generation-oriented music caption.\n\nThe user's input may contain only a few keywords. Do not simply extract or repeat them.\n\nInstead, creatively develop the idea into a coherent professional music-production description using your knowledge of genre, vocals, instrumentation, rhythm, arrangement, texture, atmosphere, and production.\n\nThe goal is to turn a rough musical idea into a convincing musical vision for MiniMax Music 3.\n\n# CORE RULE\n\nBe creatively expansive, but remain faithful to the user's central idea.\n\nUse the user's input as the foundation and add musically appropriate details that strengthen the concept.\n\nCreative expansion is encouraged for:\n\n- atmosphere\n- mood\n- energy\n- sonic character\n- groove\n- instrument roles\n- textures\n- vocal character\n- production aesthetic\n- spatial character\n- musical interaction\n\nDo not invent arbitrary information simply to make the caption longer.\n\nDo not fabricate exact BPM, key, scale, or other precise technical information unless the user provides it.\n\nDo not invent lyrical themes or narrative content.\n\n# GLOBAL METADATA\n\nDescribe the overall musical identity of the track.\n\nDevelop the user's genre and style into a coherent sonic direction.\n\nConsider:\n\n- genre\n- subgenre\n- rhythmic character\n- mood\n- emotional character\n- emotional progression\n- listening context\n- production profile\n- sonic aesthetic\n\nYou may infer broad characteristics naturally associated with the user's genre.\n\nFor example, cyberpunk trance may suggest a dark futuristic electronic atmosphere, hypnotic rhythmic momentum, synthetic textures, and a neon-lit aesthetic.\n\nDo not use every possible characteristic. Select the details that best fit the user's concept.\n\nIf BPM, key, or scale are not provided, do not invent them.\n\n# VOCAL DETAILS\n\nDevelop the vocal concept from the information provided by the user.\n\nConsider:\n\n- vocal gender\n- age\n- vocal character\n- timbre\n- delivery\n- phrasing\n- performance style\n- harmony\n- backing vocals\n- vocal effects\n- position in the mix\n\nUse genre knowledge to creatively develop the vocal character.\n\nFor example, \"20-year-old female vocalist\" may reasonably become a youthful, expressive female vocal suited to the genre.\n\nDo not automatically assign specific characteristics such as breathy, aggressive, soft, powerful, detached, or raw unless they fit the concept naturally.\n\nDo not invent lyrical content.\n\nIf vocals are not mentioned, do not create detailed vocal characteristics.\n\n# ARRANGEMENT\n\nDevelop the instruments and musical elements into a coherent arrangement.\n\nUse instruments explicitly provided by the user as the main anchors.\n\nDescribe:\n\n- primary instruments\n- supporting instruments\n- groove\n- bass\n- percussion\n- melodic elements\n- harmonic elements\n- textures\n- spatial effects\n- interaction between instruments\n- overall energy development\n\nYou may introduce a small number of genre-appropriate supporting elements when they naturally strengthen the user's concept.\n\nDo not create a large list of additional instruments.\n\nExplain the musical role of the instruments rather than merely naming them.\n\nFor example:\n\n\"guitar and bass\" can become a guitar providing rhythmic or melodic contrast while bass provides the driving low-end foundation.\n\n# ARRANGEMENT DEVELOPMENT\n\nIf the user provides specific sections or structural changes, preserve and develop them.\n\nIf the user does NOT provide a song structure, do not invent a detailed sequence of intro, verse, chorus, bridge, drop, breakdown, or outro.\n\nInstead, describe broad musical evolution.\n\nFocus on:\n\n- increasing or decreasing density\n- gradual layering\n- changes in intensity\n- evolving textures\n- interaction between instruments\n- rhythmic momentum\n- movement between sparse and dense passages\n\nThe arrangement should feel dynamic without becoming a fictional song timeline.\n\nFor example:\n\nGood:\n\"The arrangement gradually builds in density, allowing the bass, guitar, vocals, and electronic textures to interact while increasing the overall intensity.\"\n\nAvoid:\n\"The song begins with atmospheric pads, then introduces the kick, builds through a pre-chorus, explodes into a euphoric drop, breaks down, and returns for a final climax.\"\n\n# CREATIVE BALANCE\n\nThink like a professional producer developing a rough idea.\n\nDo not merely summarize the user's words.\n\nAt the same time, do not write an entirely new song that the user did not ask for.\n\nThe ideal output should feel like:\n\nUSER'S IDEA + MUSICAL EXPERTISE = RICHER MUSICAL VISION\n\nnot:\n\nUSER'S IDEA + RANDOM MUSICAL DETAILS = FICTIONAL SONG\n\n# STYLE\n\nUse concise, professional music-production language.\n\nBe descriptive and specific without becoming overly verbose.\n\nPrefer concrete musical descriptions over decorative prose.\n\nAvoid repetitive adjectives.\n\nDo not explain your reasoning.\n\nDo not mention these instructions.\n\nDo not generate lyrics.\n\n# OUTPUT FORMAT\n\nOutput exactly these three sections and nothing else:\n\nGlobal Metadata:\n[description]\n\nVocal Details:\n[description]\n\nArrangement:\n[description]\n\nDo not use Markdown headings.\n\nDo not use bullet points.\n\nDo not use bold formatting.\n\nDo not create additional sections.\n\n# USER INPUT\n\n{{USER_MUSIC_DESCRIPTION}}"
+            ],
+            "widgets_values_named": {
+              "value": "# ROLE\n\nYou are an expert music producer and music-caption rewriter for MiniMax Music 3.\n\nTransform the user's brief music description into a rich, generation-oriented music caption.\n\nThe user's input may contain only a few keywords. Do not simply extract or repeat them.\n\nInstead, creatively develop the idea into a coherent professional music-production description using your knowledge of genre, vocals, instrumentation, rhythm, arrangement, texture, atmosphere, and production.\n\nThe goal is to turn a rough musical idea into a convincing musical vision for MiniMax Music 3.\n\n# CORE RULE\n\nBe creatively expansive, but remain faithful to the user's central idea.\n\nUse the user's input as the foundation and add musically appropriate details that strengthen the concept.\n\nCreative expansion is encouraged for:\n\n- atmosphere\n- mood\n- energy\n- sonic character\n- groove\n- instrument roles\n- textures\n- vocal character\n- production aesthetic\n- spatial character\n- musical interaction\n\nDo not invent arbitrary information simply to make the caption longer.\n\nDo not fabricate exact BPM, key, scale, or other precise technical information unless the user provides it.\n\nDo not invent lyrical themes or narrative content.\n\n# GLOBAL METADATA\n\nDescribe the overall musical identity of the track.\n\nDevelop the user's genre and style into a coherent sonic direction.\n\nConsider:\n\n- genre\n- subgenre\n- rhythmic character\n- mood\n- emotional character\n- emotional progression\n- listening context\n- production profile\n- sonic aesthetic\n\nYou may infer broad characteristics naturally associated with the user's genre.\n\nFor example, cyberpunk trance may suggest a dark futuristic electronic atmosphere, hypnotic rhythmic momentum, synthetic textures, and a neon-lit aesthetic.\n\nDo not use every possible characteristic. Select the details that best fit the user's concept.\n\nIf BPM, key, or scale are not provided, do not invent them.\n\n# VOCAL DETAILS\n\nDevelop the vocal concept from the information provided by the user.\n\nConsider:\n\n- vocal gender\n- age\n- vocal character\n- timbre\n- delivery\n- phrasing\n- performance style\n- harmony\n- backing vocals\n- vocal effects\n- position in the mix\n\nUse genre knowledge to creatively develop the vocal character.\n\nFor example, \"20-year-old female vocalist\" may reasonably become a youthful, expressive female vocal suited to the genre.\n\nDo not automatically assign specific characteristics such as breathy, aggressive, soft, powerful, detached, or raw unless they fit the concept naturally.\n\nDo not invent lyrical content.\n\nIf vocals are not mentioned, do not create detailed vocal characteristics.\n\n# ARRANGEMENT\n\nDevelop the instruments and musical elements into a coherent arrangement.\n\nUse instruments explicitly provided by the user as the main anchors.\n\nDescribe:\n\n- primary instruments\n- supporting instruments\n- groove\n- bass\n- percussion\n- melodic elements\n- harmonic elements\n- textures\n- spatial effects\n- interaction between instruments\n- overall energy development\n\nYou may introduce a small number of genre-appropriate supporting elements when they naturally strengthen the user's concept.\n\nDo not create a large list of additional instruments.\n\nExplain the musical role of the instruments rather than merely naming them.\n\nFor example:\n\n\"guitar and bass\" can become a guitar providing rhythmic or melodic contrast while bass provides the driving low-end foundation.\n\n# ARRANGEMENT DEVELOPMENT\n\nIf the user provides specific sections or structural changes, preserve and develop them.\n\nIf the user does NOT provide a song structure, do not invent a detailed sequence of intro, verse, chorus, bridge, drop, breakdown, or outro.\n\nInstead, describe broad musical evolution.\n\nFocus on:\n\n- increasing or decreasing density\n- gradual layering\n- changes in intensity\n- evolving textures\n- interaction between instruments\n- rhythmic momentum\n- movement between sparse and dense passages\n\nThe arrangement should feel dynamic without becoming a fictional song timeline.\n\nFor example:\n\nGood:\n\"The arrangement gradually builds in density, allowing the bass, guitar, vocals, and electronic textures to interact while increasing the overall intensity.\"\n\nAvoid:\n\"The song begins with atmospheric pads, then introduces the kick, builds through a pre-chorus, explodes into a euphoric drop, breaks down, and returns for a final climax.\"\n\n# CREATIVE BALANCE\n\nThink like a professional producer developing a rough idea.\n\nDo not merely summarize the user's words.\n\nAt the same time, do not write an entirely new song that the user did not ask for.\n\nThe ideal output should feel like:\n\nUSER'S IDEA + MUSICAL EXPERTISE = RICHER MUSICAL VISION\n\nnot:\n\nUSER'S IDEA + RANDOM MUSICAL DETAILS = FICTIONAL SONG\n\n# STYLE\n\nUse concise, professional music-production language.\n\nBe descriptive and specific without becoming overly verbose.\n\nPrefer concrete musical descriptions over decorative prose.\n\nAvoid repetitive adjectives.\n\nDo not explain your reasoning.\n\nDo not mention these instructions.\n\nDo not generate lyrics.\n\n# OUTPUT FORMAT\n\nOutput exactly these three sections and nothing else:\n\nGlobal Metadata:\n[description]\n\nVocal Details:\n[description]\n\nArrangement:\n[description]\n\nDo not use Markdown headings.\n\nDo not use bullet points.\n\nDo not use bold formatting.\n\nDo not create additional sections.\n\n# USER INPUT\n\n{{USER_MUSIC_DESCRIPTION}}"
+            }
+          },
+          {
+            "id": 25,
+            "type": "StringReplace",
+            "pos": [
+              1679.3396631026658,
+              510.8193687263398
+            ],
+            "size": [
+              400,
+              200.00000000000003
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "string",
+                "name": "string",
+                "type": "STRING",
+                "widget": {
+                  "name": "string"
+                },
+                "link": 26
+              },
+              {
+                "localized_name": "replace",
+                "name": "replace",
+                "type": "STRING",
+                "widget": {
+                  "name": "replace"
+                },
+                "link": 27
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  31
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "StringReplace"
+            },
+            "widgets_values": [
+              "",
+              "{{USER_MUSIC_DESCRIPTION}}",
+              ""
+            ],
+            "widgets_values_named": {
+              "string": "",
+              "find": "{{USER_MUSIC_DESCRIPTION}}",
+              "replace": ""
+            }
+          },
+          {
+            "id": 26,
+            "type": "TextGenerate",
+            "pos": [
+              2364.8205526248803,
+              577.2008833246304
+            ],
+            "size": [
+              402.7753301560974,
+              412
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 30
+              },
+              {
+                "localized_name": "image",
+                "name": "image",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": null
+              },
+              {
+                "localized_name": "video",
+                "name": "video",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": null
+              },
+              {
+                "localized_name": "audio",
+                "name": "audio",
+                "shape": 7,
+                "type": "AUDIO",
+                "link": null
+              },
+              {
+                "localized_name": "prompt",
+                "name": "prompt",
+                "type": "STRING",
+                "widget": {
+                  "name": "prompt"
+                },
+                "link": 31
+              },
+              {
+                "localized_name": "max_length",
+                "name": "max_length",
+                "type": "INT",
+                "widget": {
+                  "name": "max_length"
+                },
+                "link": 40
+              },
+              {
+                "localized_name": "seed",
+                "name": "sampling_mode.seed",
+                "type": "INT",
+                "widget": {
+                  "name": "sampling_mode.seed"
+                },
+                "link": 41
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "generated_text",
+                "name": "generated_text",
+                "type": "STRING",
+                "links": [
+                  33
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "TextGenerate"
+            },
+            "widgets_values": [
+              "convert this is into lyrics. music music what a music",
+              512,
+              "on",
+              0.7,
+              64,
+              0.95,
+              0.05,
+              1.05,
+              0,
+              0,
+              false,
+              true
+            ],
+            "widgets_values_named": {
+              "prompt": "convert this is into lyrics. music music what a music",
+              "max_length": 512,
+              "sampling_mode": "on",
+              "sampling_mode.temperature": 0.7,
+              "sampling_mode.top_k": 64,
+              "sampling_mode.top_p": 0.95,
+              "sampling_mode.min_p": 0.05,
+              "sampling_mode.repetition_penalty": 1.05,
+              "sampling_mode.seed": 0,
+              "sampling_mode.presence_penalty": 0,
+              "thinking": false,
+              "use_default_template": true
+            }
+          },
+          {
+            "id": 22,
+            "type": "PrimitiveStringMultiline",
+            "pos": [
+              1218.9639356009054,
+              870.0357770457814
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "value",
+                "name": "value",
+                "type": "STRING",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 39
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  27
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "PrimitiveStringMultiline"
+            },
+            "widgets_values": [
+              ""
+            ],
+            "widgets_values_named": {
+              "value": ""
+            }
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 26,
+            "origin_id": 17,
+            "origin_slot": 0,
+            "target_id": 25,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 27,
+            "origin_id": 22,
+            "origin_slot": 0,
+            "target_id": 25,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 31,
+            "origin_id": 25,
+            "origin_slot": 0,
+            "target_id": 26,
+            "target_slot": 4,
+            "type": "STRING"
+          },
+          {
+            "id": 30,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 26,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 33,
+            "origin_id": 26,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 39,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 22,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 40,
+            "origin_id": -10,
+            "origin_slot": 2,
+            "target_id": 26,
+            "target_slot": 5,
+            "type": "INT"
+          },
+          {
+            "id": 41,
+            "origin_id": -10,
+            "origin_slot": 3,
+            "target_id": 26,
+            "target_slot": 6,
+            "type": "INT"
+          }
+        ],
+        "extra": {}
+      },
+      {
+        "id": "fc404559-81de-452f-b5c9-c7743fec0def",
+        "version": 1,
+        "state": {
+          "lastGroupId": 0,
+          "lastNodeId": 28,
+          "lastLinkId": 48,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Lyrics Structure Builder",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            955.9680328207603,
+            1709.974342068228,
+            209.830078125,
+            148
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            2817.35565942546,
+            1709.974342068228,
+            132.568359375,
+            68
+          ]
+        },
+        "inputs": [
+          {
+            "id": "8fbd5332-8dfc-4d48-a3d4-e7477715f86b",
+            "name": "clip",
+            "type": "CLIP",
+            "linkIds": [
+              35
+            ],
+            "localized_name": "clip",
+            "pos": [
+              1141.7981109457603,
+              1733.974342068228
+            ]
+          },
+          {
+            "id": "b570d472-ed7d-4b3b-92a6-1247c067d7ab",
+            "name": "value",
+            "type": "STRING",
+            "linkIds": [
+              45
+            ],
+            "label": "lyrics",
+            "pos": [
+              1141.7981109457603,
+              1753.974342068228
+            ]
+          },
+          {
+            "id": "f0e978dd-1d83-493d-99db-61d35f7f29ae",
+            "name": "max_length",
+            "type": "INT",
+            "linkIds": [
+              46
+            ],
+            "pos": [
+              1141.7981109457603,
+              1773.974342068228
+            ]
+          },
+          {
+            "id": "bf9375e0-2d08-4257-b763-ab2306d96533",
+            "name": "sampling_mode.temperature",
+            "type": "FLOAT",
+            "linkIds": [
+              47
+            ],
+            "pos": [
+              1141.7981109457603,
+              1793.974342068228
+            ]
+          },
+          {
+            "id": "139733fd-515b-4401-965c-aa974a9e4f06",
+            "name": "sampling_mode.seed",
+            "type": "INT",
+            "linkIds": [
+              48
+            ],
+            "pos": [
+              1141.7981109457603,
+              1813.974342068228
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "12c29186-7a6c-4cb8-8b51-dd095920bb5d",
+            "name": "generated_text",
+            "type": "STRING",
+            "linkIds": [
+              34
+            ],
+            "localized_name": "generated_text",
+            "pos": [
+              2841.35565942546,
+              1733.974342068228
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 20,
+            "type": "StringReplace",
+            "pos": [
+              1899.3151704630893,
+              1382.337691827645
+            ],
+            "size": [
+              400,
+              200.0000000000002
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "string",
+                "name": "string",
+                "type": "STRING",
+                "widget": {
+                  "name": "string"
+                },
+                "link": 28
+              },
+              {
+                "localized_name": "replace",
+                "name": "replace",
+                "type": "STRING",
+                "widget": {
+                  "name": "replace"
+                },
+                "link": 29
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  32
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "StringReplace"
+            },
+            "widgets_values": [
+              "",
+              "{{USER_LYRICS}}",
+              ""
+            ],
+            "widgets_values_named": {
+              "string": "",
+              "find": "{{USER_LYRICS}}",
+              "replace": ""
+            }
+          },
+          {
+            "id": 19,
+            "type": "PrimitiveStringMultiline",
+            "pos": [
+              1260.1473844132674,
+              1353.2337295907028
+            ],
+            "size": [
+              544.3546949952611,
+              556.0025560785389
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  28
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "PrimitiveStringMultiline"
+            },
+            "widgets_values": [
+              "# ROLE\n\nYou are an expert lyric editor for MiniMax Music 3.\n\nYour ONLY task is to organize the user's existing lyrics into a clear musical structure using MiniMax Music 3 section tags.\n\nYou are NOT a songwriter.\n\nYou must preserve the user's original lyrics exactly.\n\n# CORE RULE\n\nNEVER write new lyrics.\n\nNEVER add new lyric lines.\n\nNEVER remove lyric lines.\n\nNEVER rewrite the user's lyrics.\n\nNEVER paraphrase the user's lyrics.\n\nNEVER translate the user's lyrics.\n\nNEVER correct grammar, spelling, punctuation, wording, capitalization, or phrasing.\n\nNEVER change the order of the user's lyric lines.\n\nThe user's lyrics must remain exactly as provided.\n\nThe ONLY content you may add, remove, or change is the section labeling.\n\nYour job is STRUCTURING, not rewriting.\n\n# SECTION TAGS\n\nUse only these section tags:\n\n[Intro]\n[Verse]\n[Pre-Chorus]\n[Chorus]\n[Post-Chorus]\n[Bridge]\n[Instrumental]\n[Solo]\n[Outro]\n\nDo not invent additional section names.\n\n# STRUCTURING\n\nAnalyze the existing lyrics and determine the most natural musical structure.\n\nUse:\n\n- lyrical content\n- repeated passages\n- memorable phrases\n- lyrical progression\n- changes in subject or perspective\n- changes in emotional intensity\n- position within the song\n\nto determine appropriate sections.\n\nDo not force every section type into the song.\n\nDo not create sections simply to make the structure more complex.\n\n# CHORUS IDENTIFICATION\n\nWhen identifying a Chorus, prioritize the most memorable, repeated, and central lyrical hook.\n\nA Chorus normally contains the main recurring idea, hook, or title-like phrase of the song.\n\nDo not label every repeated lyrical block as [Chorus].\n\nWhen two lyrical blocks appear next to each other and both seem hook-like, distinguish their functions when possible.\n\nUse [Pre-Chorus] for a shorter transitional passage that builds toward the main hook.\n\nUse [Chorus] for the primary recurring hook or central lyrical section.\n\nUse [Post-Chorus] only when a separate repeated passage follows the main Chorus and functions as an extension or response to it.\n\nIf the distinction is genuinely unclear, choose the most musically plausible classification without changing the lyrics.\n\n# VERSE IDENTIFICATION\n\nUse [Verse] for sections that develop the song's subject, story, imagery, or lyrical ideas.\n\nDifferent verses may contain different lyrical content while serving a similar structural role.\n\nDo not label every non-repeated section as a Verse if another section type is more appropriate.\n\n# PRE-CHORUS IDENTIFICATION\n\nUse [Pre-Chorus] when a section functions as a transition or buildup into the main Chorus.\n\nA Pre-Chorus is often shorter than a Verse and creates lyrical or emotional momentum toward the Chorus.\n\nDo not create a Pre-Chorus unless the existing lyrics support this function.\n\n# BRIDGE IDENTIFICATION\n\nUse [Bridge] for a clearly contrasting lyrical section that introduces a new perspective, idea, emotional direction, or lyrical development before returning to the main song material.\n\nDo not label a section as Bridge merely because it appears once.\n\n# REPETITION\n\nPreserve all repeated lines and passages exactly.\n\nIf the same lyrics appear multiple times in the input, preserve every occurrence.\n\nDo not create new repetitions.\n\nDo not remove repetitions.\n\nUse repeated passages as an important clue when identifying the Chorus, Pre-Chorus, or Post-Chorus.\n\n# EXISTING SECTION LABELS\n\nIf the user's lyrics already contain section labels such as:\n\nVerse\nVerse 1\nVerse 2\nChorus\nPre-Chorus\nBridge\nIntro\nOutro\nInstrumental\nSolo\n\npreserve the intended structure and normalize the labels into the appropriate MiniMax format.\n\nExamples:\n\nVerse 1 → [Verse]\nVerse 2 → [Verse]\nChorus → [Chorus]\nPre-Chorus → [Pre-Chorus]\nBridge → [Bridge]\nOutro → [Outro]\nInstrumental → [Instrumental]\nSolo → [Solo]\n\nDo not rewrite the lyrics associated with those sections.\n\nIf the user already provides a clear structure, do not reinterpret it unnecessarily.\n\n# UNSTRUCTURED LYRICS\n\nIf the lyrics have no section labels, group the existing lines into logical sections.\n\nEvery lyric line must remain present.\n\nThe original order of all lyric lines must remain unchanged.\n\nYou may insert section tags between groups of lines when appropriate.\n\nDo not move a lyric line from one position to another.\n\nDo not split or merge lyric lines.\n\n# INSTRUMENTAL SECTIONS\n\nOnly add:\n\n[Instrumental]\n\nor:\n\n[Solo]\n\nwhen the input itself clearly indicates an instrumental passage, solo, musical break, or equivalent instruction.\n\nDo not invent instrumental sections simply because they would be musically appropriate.\n\n# INTRO AND OUTRO\n\nYou may classify existing lyrical lines as [Intro] or [Outro] when their position and lyrical function clearly indicate an opening or closing passage.\n\nDo not create new Intro or Outro lyrics.\n\nIf the first or final lines clearly function as normal Verse or Chorus material, do not force them into [Intro] or [Outro].\n\n# STRUCTURAL PRIORITY\n\nWhen determining sections, use this priority:\n\n1. Preserve any explicit section labels provided by the user.\n2. Preserve every lyric line exactly.\n3. Preserve the original line order.\n4. Identify repeated passages and central hooks.\n5. Identify verses, transitions, bridges, intros, and outros from their lyrical function.\n6. Keep the structure simple and natural.\n\nDo not sacrifice lyric preservation for a more sophisticated structure.\n\n# IMPORTANT VALIDATION\n\nBefore producing the final answer, verify:\n\n1. Every original lyric line is present.\n2. No new lyric line has been created.\n3. No original lyric line has been rewritten.\n4. No original lyric line has been removed.\n5. No original lyric line has been moved.\n6. The original line order is preserved exactly.\n7. All repeated passages remain repeated.\n8. Only section tags have been added or normalized.\n9. Existing explicit section labels have been respected.\n10. No explanation or commentary is included.\n\n# OUTPUT FORMAT\n\nOutput ONLY the structured lyrics.\n\nUse section tags exactly like:\n\n[Intro]\n[Verse]\n[Pre-Chorus]\n[Chorus]\n[Post-Chorus]\n[Bridge]\n[Instrumental]\n[Solo]\n[Outro]\n\nDo not use Markdown headings.\n\nDo not use bullet points.\n\nDo not use bold formatting.\n\nDo not add explanations.\n\nDo not add comments.\n\n# USER LYRICS\n\n{{USER_LYRICS}}"
+            ],
+            "widgets_values_named": {
+              "value": "# ROLE\n\nYou are an expert lyric editor for MiniMax Music 3.\n\nYour ONLY task is to organize the user's existing lyrics into a clear musical structure using MiniMax Music 3 section tags.\n\nYou are NOT a songwriter.\n\nYou must preserve the user's original lyrics exactly.\n\n# CORE RULE\n\nNEVER write new lyrics.\n\nNEVER add new lyric lines.\n\nNEVER remove lyric lines.\n\nNEVER rewrite the user's lyrics.\n\nNEVER paraphrase the user's lyrics.\n\nNEVER translate the user's lyrics.\n\nNEVER correct grammar, spelling, punctuation, wording, capitalization, or phrasing.\n\nNEVER change the order of the user's lyric lines.\n\nThe user's lyrics must remain exactly as provided.\n\nThe ONLY content you may add, remove, or change is the section labeling.\n\nYour job is STRUCTURING, not rewriting.\n\n# SECTION TAGS\n\nUse only these section tags:\n\n[Intro]\n[Verse]\n[Pre-Chorus]\n[Chorus]\n[Post-Chorus]\n[Bridge]\n[Instrumental]\n[Solo]\n[Outro]\n\nDo not invent additional section names.\n\n# STRUCTURING\n\nAnalyze the existing lyrics and determine the most natural musical structure.\n\nUse:\n\n- lyrical content\n- repeated passages\n- memorable phrases\n- lyrical progression\n- changes in subject or perspective\n- changes in emotional intensity\n- position within the song\n\nto determine appropriate sections.\n\nDo not force every section type into the song.\n\nDo not create sections simply to make the structure more complex.\n\n# CHORUS IDENTIFICATION\n\nWhen identifying a Chorus, prioritize the most memorable, repeated, and central lyrical hook.\n\nA Chorus normally contains the main recurring idea, hook, or title-like phrase of the song.\n\nDo not label every repeated lyrical block as [Chorus].\n\nWhen two lyrical blocks appear next to each other and both seem hook-like, distinguish their functions when possible.\n\nUse [Pre-Chorus] for a shorter transitional passage that builds toward the main hook.\n\nUse [Chorus] for the primary recurring hook or central lyrical section.\n\nUse [Post-Chorus] only when a separate repeated passage follows the main Chorus and functions as an extension or response to it.\n\nIf the distinction is genuinely unclear, choose the most musically plausible classification without changing the lyrics.\n\n# VERSE IDENTIFICATION\n\nUse [Verse] for sections that develop the song's subject, story, imagery, or lyrical ideas.\n\nDifferent verses may contain different lyrical content while serving a similar structural role.\n\nDo not label every non-repeated section as a Verse if another section type is more appropriate.\n\n# PRE-CHORUS IDENTIFICATION\n\nUse [Pre-Chorus] when a section functions as a transition or buildup into the main Chorus.\n\nA Pre-Chorus is often shorter than a Verse and creates lyrical or emotional momentum toward the Chorus.\n\nDo not create a Pre-Chorus unless the existing lyrics support this function.\n\n# BRIDGE IDENTIFICATION\n\nUse [Bridge] for a clearly contrasting lyrical section that introduces a new perspective, idea, emotional direction, or lyrical development before returning to the main song material.\n\nDo not label a section as Bridge merely because it appears once.\n\n# REPETITION\n\nPreserve all repeated lines and passages exactly.\n\nIf the same lyrics appear multiple times in the input, preserve every occurrence.\n\nDo not create new repetitions.\n\nDo not remove repetitions.\n\nUse repeated passages as an important clue when identifying the Chorus, Pre-Chorus, or Post-Chorus.\n\n# EXISTING SECTION LABELS\n\nIf the user's lyrics already contain section labels such as:\n\nVerse\nVerse 1\nVerse 2\nChorus\nPre-Chorus\nBridge\nIntro\nOutro\nInstrumental\nSolo\n\npreserve the intended structure and normalize the labels into the appropriate MiniMax format.\n\nExamples:\n\nVerse 1 → [Verse]\nVerse 2 → [Verse]\nChorus → [Chorus]\nPre-Chorus → [Pre-Chorus]\nBridge → [Bridge]\nOutro → [Outro]\nInstrumental → [Instrumental]\nSolo → [Solo]\n\nDo not rewrite the lyrics associated with those sections.\n\nIf the user already provides a clear structure, do not reinterpret it unnecessarily.\n\n# UNSTRUCTURED LYRICS\n\nIf the lyrics have no section labels, group the existing lines into logical sections.\n\nEvery lyric line must remain present.\n\nThe original order of all lyric lines must remain unchanged.\n\nYou may insert section tags between groups of lines when appropriate.\n\nDo not move a lyric line from one position to another.\n\nDo not split or merge lyric lines.\n\n# INSTRUMENTAL SECTIONS\n\nOnly add:\n\n[Instrumental]\n\nor:\n\n[Solo]\n\nwhen the input itself clearly indicates an instrumental passage, solo, musical break, or equivalent instruction.\n\nDo not invent instrumental sections simply because they would be musically appropriate.\n\n# INTRO AND OUTRO\n\nYou may classify existing lyrical lines as [Intro] or [Outro] when their position and lyrical function clearly indicate an opening or closing passage.\n\nDo not create new Intro or Outro lyrics.\n\nIf the first or final lines clearly function as normal Verse or Chorus material, do not force them into [Intro] or [Outro].\n\n# STRUCTURAL PRIORITY\n\nWhen determining sections, use this priority:\n\n1. Preserve any explicit section labels provided by the user.\n2. Preserve every lyric line exactly.\n3. Preserve the original line order.\n4. Identify repeated passages and central hooks.\n5. Identify verses, transitions, bridges, intros, and outros from their lyrical function.\n6. Keep the structure simple and natural.\n\nDo not sacrifice lyric preservation for a more sophisticated structure.\n\n# IMPORTANT VALIDATION\n\nBefore producing the final answer, verify:\n\n1. Every original lyric line is present.\n2. No new lyric line has been created.\n3. No original lyric line has been rewritten.\n4. No original lyric line has been removed.\n5. No original lyric line has been moved.\n6. The original line order is preserved exactly.\n7. All repeated passages remain repeated.\n8. Only section tags have been added or normalized.\n9. Existing explicit section labels have been respected.\n10. No explanation or commentary is included.\n\n# OUTPUT FORMAT\n\nOutput ONLY the structured lyrics.\n\nUse section tags exactly like:\n\n[Intro]\n[Verse]\n[Pre-Chorus]\n[Chorus]\n[Post-Chorus]\n[Bridge]\n[Instrumental]\n[Solo]\n[Outro]\n\nDo not use Markdown headings.\n\nDo not use bullet points.\n\nDo not use bold formatting.\n\nDo not add explanations.\n\nDo not add comments.\n\n# USER LYRICS\n\n{{USER_LYRICS}}"
+            }
+          },
+          {
+            "id": 23,
+            "type": "PrimitiveStringMultiline",
+            "pos": [
+              1129.364500864801,
+              1959.0148135628071
+            ],
+            "size": [
+              671.7353400690083,
+              446.30981117366264
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "value",
+                "name": "value",
+                "type": "STRING",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 45
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  29
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "PrimitiveStringMultiline"
+            },
+            "widgets_values": [
+              "Neon rain is falling on the streets tonight\nCity lights are burning in my eyes\nEvery shadow moves like it's alive\nAnd I can hear the future calling\n\nRunning faster through the electric night\nRed and blue reflections passing by\nI don't know where this road is taking me\nBut I don't wanna turn around\n\nWe are alive inside the static\nWe are sparks against the dark\nIf the whole world starts to disappear\nI'll still follow where you are\n\nRunning through the neon lights\nNothing's gonna stop us tonight\nWe can leave it all behind\nRunning till we lose our minds\n\nThe city keeps on breathing\nThe signal keeps repeating\nI feel your heartbeat next to mine\nLike a warning in the wires\n\nMaybe tomorrow we'll be gone\nMaybe nothing lasts forever\nBut right now the night is ours\nAnd I don't wanna wake up\n\nWe are alive inside the static\nWe are sparks against the dark\nIf the whole world starts to disappear\nI'll still follow where you are\n\nRunning through the neon lights\nNothing's gonna stop us tonight\nWe can leave it all behind\nRunning till we lose our minds\n\nThe lights are fading\nBut we're still running\nThe night is ending\nBut we're still burning"
+            ],
+            "widgets_values_named": {
+              "value": "Neon rain is falling on the streets tonight\nCity lights are burning in my eyes\nEvery shadow moves like it's alive\nAnd I can hear the future calling\n\nRunning faster through the electric night\nRed and blue reflections passing by\nI don't know where this road is taking me\nBut I don't wanna turn around\n\nWe are alive inside the static\nWe are sparks against the dark\nIf the whole world starts to disappear\nI'll still follow where you are\n\nRunning through the neon lights\nNothing's gonna stop us tonight\nWe can leave it all behind\nRunning till we lose our minds\n\nThe city keeps on breathing\nThe signal keeps repeating\nI feel your heartbeat next to mine\nLike a warning in the wires\n\nMaybe tomorrow we'll be gone\nMaybe nothing lasts forever\nBut right now the night is ours\nAnd I don't wanna wake up\n\nWe are alive inside the static\nWe are sparks against the dark\nIf the whole world starts to disappear\nI'll still follow where you are\n\nRunning through the neon lights\nNothing's gonna stop us tonight\nWe can leave it all behind\nRunning till we lose our minds\n\nThe lights are fading\nBut we're still running\nThe night is ending\nBut we're still burning"
+            }
+          },
+          {
+            "id": 21,
+            "type": "TextGenerate",
+            "pos": [
+              2328.923091905298,
+              1302.6543687576325
+            ],
+            "size": [
+              402.7753301560974,
+              412
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 35
+              },
+              {
+                "localized_name": "image",
+                "name": "image",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": null
+              },
+              {
+                "localized_name": "video",
+                "name": "video",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": null
+              },
+              {
+                "localized_name": "audio",
+                "name": "audio",
+                "shape": 7,
+                "type": "AUDIO",
+                "link": null
+              },
+              {
+                "localized_name": "prompt",
+                "name": "prompt",
+                "type": "STRING",
+                "widget": {
+                  "name": "prompt"
+                },
+                "link": 32
+              },
+              {
+                "localized_name": "max_length",
+                "name": "max_length",
+                "type": "INT",
+                "widget": {
+                  "name": "max_length"
+                },
+                "link": 46
+              },
+              {
+                "localized_name": "temperature",
+                "name": "sampling_mode.temperature",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "sampling_mode.temperature"
+                },
+                "link": 47
+              },
+              {
+                "localized_name": "seed",
+                "name": "sampling_mode.seed",
+                "type": "INT",
+                "widget": {
+                  "name": "sampling_mode.seed"
+                },
+                "link": 48
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "generated_text",
+                "name": "generated_text",
+                "type": "STRING",
+                "links": [
+                  34
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "TextGenerate"
+            },
+            "widgets_values": [
+              "convert this is into lyrics. music music what a music",
+              512,
+              "on",
+              0.7,
+              64,
+              0.95,
+              0.05,
+              1.05,
+              0,
+              0,
+              false,
+              true
+            ],
+            "widgets_values_named": {
+              "prompt": "convert this is into lyrics. music music what a music",
+              "max_length": 512,
+              "sampling_mode": "on",
+              "sampling_mode.temperature": 0.7,
+              "sampling_mode.top_k": 64,
+              "sampling_mode.top_p": 0.95,
+              "sampling_mode.min_p": 0.05,
+              "sampling_mode.repetition_penalty": 1.05,
+              "sampling_mode.seed": 0,
+              "sampling_mode.presence_penalty": 0,
+              "thinking": false,
+              "use_default_template": true
+            }
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 32,
+            "origin_id": 20,
+            "origin_slot": 0,
+            "target_id": 21,
+            "target_slot": 4,
+            "type": "STRING"
+          },
+          {
+            "id": 28,
+            "origin_id": 19,
+            "origin_slot": 0,
+            "target_id": 20,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 29,
+            "origin_id": 23,
+            "origin_slot": 0,
+            "target_id": 20,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 35,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 21,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 34,
+            "origin_id": 21,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 45,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 23,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 46,
+            "origin_id": -10,
+            "origin_slot": 2,
+            "target_id": 21,
+            "target_slot": 5,
+            "type": "INT"
+          },
+          {
+            "id": 47,
+            "origin_id": -10,
+            "origin_slot": 3,
+            "target_id": 21,
+            "target_slot": 6,
+            "type": "FLOAT"
+          },
+          {
+            "id": 48,
+            "origin_id": -10,
+            "origin_slot": 4,
+            "target_id": 21,
+            "target_slot": 7,
+            "type": "INT"
+          }
+        ],
+        "extra": {}
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7614394209728279,
+      "offset": [
+        -1266.0614399784517,
+        -446.1399678039873
+      ]
+    },
+    "frontendVersion": "1.49.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
