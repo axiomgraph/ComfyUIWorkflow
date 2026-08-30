@@ -1,0 +1,1748 @@
+{
+  "id": "52400692-d06e-430c-bb86-1925626ee642",
+  "revision": 0,
+  "last_node_id": 78,
+  "last_link_id": 169,
+  "nodes": [
+    {
+      "id": 33,
+      "type": "VAEDecode",
+      "pos": [
+        2189.1637355147645,
+        5602.51671079895
+      ],
+      "size": [
+        190,
+        46
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 122
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 73
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            82
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      }
+    },
+    {
+      "id": 35,
+      "type": "CLIPLoader",
+      "pos": [
+        -1963.2456774804405,
+        5753.410407005686
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            66,
+            76
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 36,
+      "type": "VAELoader",
+      "pos": [
+        -1963.2456774804405,
+        5903.410407005686
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            67,
+            73
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+      }
+    },
+    {
+      "id": 37,
+      "type": "VAELoader",
+      "pos": [
+        -1963.2456774804405,
+        6003.410407005686
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            75
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 34,
+      "type": "VAEDecodeAudio",
+      "pos": [
+        2187.0443019210143,
+        5691.51671079895
+      ],
+      "size": [
+        191.2388671875,
+        47
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 123
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            83
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecodeAudio",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      }
+    },
+    {
+      "id": 21,
+      "type": "CreateVideo",
+      "pos": [
+        2405.3646574777918,
+        5604.2806296090275
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 82
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            56
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        24,
+        8,
+        "sRGB"
+      ],
+      "widgets_values_named": {
+        "fps": 24,
+        "bit_depth": 8,
+        "color_space": "sRGB"
+      }
+    },
+    {
+      "id": 39,
+      "type": "UNETLoader",
+      "pos": [
+        -1963.2456774804405,
+        5483.410407005686
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            132
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 55,
+      "type": "BasicScheduler",
+      "pos": [
+        1876.0641938179738,
+        5626.73259669003
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 120
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            116
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BasicScheduler",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "simple",
+        10,
+        1
+      ],
+      "widgets_values_named": {
+        "scheduler": "simple",
+        "steps": 10,
+        "denoise": 1
+      }
+    },
+    {
+      "id": 61,
+      "type": "KSamplerSelect",
+      "pos": [
+        1877.76466661201,
+        5519.77616460624
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            134
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "res_multistep"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "res_multistep"
+      }
+    },
+    {
+      "id": 41,
+      "type": "MiniMaxH3SigmaShift",
+      "pos": [
+        -1653.245677480441,
+        5463.410407005686
+      ],
+      "size": [
+        277.2857421875,
+        82
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 133
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            127
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3SigmaShift",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        12,
+        3
+      ],
+      "widgets_values_named": {
+        "shift_video": 12,
+        "shift_audio": 3
+      }
+    },
+    {
+      "id": 59,
+      "type": "ModelAttentionBackend",
+      "pos": [
+        -1648.140056509776,
+        5338.615068238459
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 127
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            137
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelAttentionBackend",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "comfy kitchen attention"
+      ],
+      "widgets_values_named": {
+        "attention": "comfy kitchen attention"
+      }
+    },
+    {
+      "id": 29,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1601.6318427359477,
+        6083.388291294934
+      ],
+      "size": [
+        418,
+        204
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 76
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            119
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "widgets_values_named": {
+        "text": ""
+      }
+    },
+    {
+      "id": 48,
+      "type": "SolAttnPatch",
+      "pos": [
+        1541.501049426673,
+        5099.618947643118
+      ],
+      "size": [
+        270,
+        342
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 137
+        },
+        {
+          "name": "tau_profile",
+          "shape": 7,
+          "type": "STRING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            120,
+            121
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SolAttnPatch",
+        "aux_id": "kijai/ComfyUI-SolAttn_triton",
+        "ver": "842c4eaa7d91dbaef3fee3ccdbf36a39521e82fc"
+      },
+      "widgets_values": [
+        1.3,
+        0.2,
+        0.9,
+        4096,
+        true,
+        "exact_kv_and_rows",
+        false,
+        "2d_frame",
+        true,
+        false,
+        false,
+        ""
+      ],
+      "widgets_values_named": {
+        "tau": 1.3,
+        "start_percent": 0.2,
+        "end_percent": 0.9,
+        "min_tokens": 4096,
+        "int8_qk": true,
+        "sink_conditioning": "exact_kv_and_rows",
+        "morton": false,
+        "morton_curve": "2d_frame",
+        "int8_pv": true,
+        "verbose": false,
+        "use_tma": false,
+        "dense_blocks": ""
+      }
+    },
+    {
+      "id": 53,
+      "type": "SamplerCustom",
+      "pos": [
+        1872.8262885373047,
+        5777.839486942217
+      ],
+      "size": [
+        271.125,
+        230
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 121
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 118
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 119
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 134
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 116
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 117
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            122,
+            123
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        true,
+        658457703214531,
+        "randomize",
+        1
+      ],
+      "widgets_values_named": {
+        "add_noise": true,
+        "noise_seed": 658457703214531,
+        "control_after_generate": "randomize",
+        "cfg": 1
+      }
+    },
+    {
+      "id": 60,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -1963.2456774804405,
+        5613.410407005686
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 132
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            133
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "minimax_h3_fl2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+        1
+      ],
+      "widgets_values_named": {
+        "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_768p_comfyui_bf16.safetensors",
+        "strength_model": 1
+      }
+    },
+    {
+      "id": 32,
+      "type": "PrimitiveFloat",
+      "pos": [
+        -1098.511699613963,
+        6281.8027449096635
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            81,
+            167
+          ]
+        }
+      ],
+      "title": "Length In Seconds",
+      "properties": {
+        "Node name for S&R": "PrimitiveFloat",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        10
+      ],
+      "widgets_values_named": {
+        "value": 10
+      }
+    },
+    {
+      "id": 30,
+      "type": "MiniMaxH3ImageToVideo",
+      "pos": [
+        1145.82627129878,
+        5528.844534586892
+      ],
+      "size": [
+        667.8251999999998,
+        481.7971000000007
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 66
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 67
+        },
+        {
+          "name": "first_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 77
+        },
+        {
+          "name": "last_frame",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 78
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 157
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 79
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 80
+        },
+        {
+          "name": "length",
+          "type": "INT",
+          "widget": {
+            "name": "length"
+          },
+          "link": 68
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            118
+          ]
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            117
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3ImageToVideo",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.\n\nintegrated_multimodal_description: [Shot 1] This is a 3D animated cinematic shot. An on-screen young adult male with messy brown hair, large expressive blue eyes, and a soft, mid-pitched voice (S1), wearing an olive green button-up shirt with rolled-up sleeves, a bright red scarf, a brown leather backpack with hanging straps, and a brown utility pouch on his waist, stands on the left side of the frame. Beside him on the right is a large, friendly-looking dragon with a vibrant, iridescent gradient of purple, blue, green, and yellow scales covering its thick neck and plump body. The dragon features a prominent orange snout, large glowing green eyes with dark pupils, and several sharp, curved horns protruding from its head. Its massive wings, featuring a dark purple outer edge and a bright, translucent orange membrane, are fully extended outward. The background is a magical, softly lit cavern environment with glowing blue and purple hues, illuminated by ethereal, warm light rays streaming down from the upper left. In the lower right foreground, a small green plant with a yellow flower adds depth to the scene. The camera slowly pushes in on the pair. The young man looks up at the dragon with a gentle, affectionate smile, his posture relaxed. He slightly shifts his weight, causing the leather straps of his backpack to settle. The dragon blinks its large green eyes slowly, its orange snout twitching slightly as it sniffs the air, while its massive wings give a subtle, heavy flap. The young man in the green shirt (S1) says: <d>[English] This is the place.</d> [Shot 2] At 00:04.000, the camera cuts to a slightly closer, eye-level angle focusing on the dragon's face and upper chest, with the young man's shoulder and red scarf visible on the left edge of the frame. The camera slowly arcs right, revealing more of the cavern's glowing blue background. The dragon from Shot 1 tilts its massive, scaly head slightly toward the young man, its large green eyes narrowing in a curious, inquisitive expression. The dragon opens its mouth, revealing smooth, white teeth and a pink interior, and speaks with a deep, resonant, and slightly raspy voice (S2). The dragon in the iridescent scales (S2) replies: <d>[English] Are you sure.</d> As it speaks, the dragon's jaw moves deliberately, and its prominent horns bob slightly with the rhythm of its voice. The warm light rays from the left continue to cast a soft, ethereal glow on the side of the dragon's face, highlighting the intricate, glossy texture of its purple and green scales. The young man remains perfectly still, his gaze fixed intently on the dragon's face, listening silently to the reply. [Shot 3] At 00:07.500, the camera cuts to a medium close-up of the young man from Shot 1, framing him from the chest up against the softly blurred, glowing blue background. The camera holds a perfectly static shot. The young man's expression shifts from a gentle smile to a look of complete, absolute stillness. He blinks once, slowly, his large blue eyes reflecting the warm, ethereal light rays from the left. His chest rises and falls with a quiet, steady breath, his shoulders dropping slightly as he lets out a soft, audible sigh. He remains completely silent, his lips pressed together in a firm, relaxed line, his posture stiffening slightly as he stares straight ahead, effectively halting the conversation. The small green plant with the yellow flower in the lower right corner remains visible, anchoring the foreground space as the scene settles into a quiet, motionless tableau.\n\noverall_soundscape: The soundscape begins with a continuous, low-frequency ambient hum of the cavern, accompanied by the gentle, sweeping rustle of the dragon's massive wings flapping. As the young man shifts his weight, the distinct, crisp creak of his leather backpack straps is clearly heard in the foreground. This is followed by the young man's soft, mid-pitched voice speaking clearly. The moment the dragon opens its mouth, a deep, resonant, and slightly raspy voice dominates the foreground, delivering the reply with a pronounced, heavy cadence. As the conversation stops, the vocalizations cease, leaving only the quiet, rhythmic sound of the young man's steady breathing and the persistent, echoing ambient hum of the cavern.\n\nnon_diegetic_music: A gentle, magical orchestral score featuring soft woodwinds and a delicate harp melody plays throughout, creating a sense of wonder and quiet companionship.",
+        1344,
+        768,
+        124
+      ],
+      "widgets_values_named": {
+        "prompt": "For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.\n\nintegrated_multimodal_description: [Shot 1] This is a 3D animated cinematic shot. An on-screen young adult male with messy brown hair, large expressive blue eyes, and a soft, mid-pitched voice (S1), wearing an olive green button-up shirt with rolled-up sleeves, a bright red scarf, a brown leather backpack with hanging straps, and a brown utility pouch on his waist, stands on the left side of the frame. Beside him on the right is a large, friendly-looking dragon with a vibrant, iridescent gradient of purple, blue, green, and yellow scales covering its thick neck and plump body. The dragon features a prominent orange snout, large glowing green eyes with dark pupils, and several sharp, curved horns protruding from its head. Its massive wings, featuring a dark purple outer edge and a bright, translucent orange membrane, are fully extended outward. The background is a magical, softly lit cavern environment with glowing blue and purple hues, illuminated by ethereal, warm light rays streaming down from the upper left. In the lower right foreground, a small green plant with a yellow flower adds depth to the scene. The camera slowly pushes in on the pair. The young man looks up at the dragon with a gentle, affectionate smile, his posture relaxed. He slightly shifts his weight, causing the leather straps of his backpack to settle. The dragon blinks its large green eyes slowly, its orange snout twitching slightly as it sniffs the air, while its massive wings give a subtle, heavy flap. The young man in the green shirt (S1) says: <d>[English] This is the place.</d> [Shot 2] At 00:04.000, the camera cuts to a slightly closer, eye-level angle focusing on the dragon's face and upper chest, with the young man's shoulder and red scarf visible on the left edge of the frame. The camera slowly arcs right, revealing more of the cavern's glowing blue background. The dragon from Shot 1 tilts its massive, scaly head slightly toward the young man, its large green eyes narrowing in a curious, inquisitive expression. The dragon opens its mouth, revealing smooth, white teeth and a pink interior, and speaks with a deep, resonant, and slightly raspy voice (S2). The dragon in the iridescent scales (S2) replies: <d>[English] Are you sure.</d> As it speaks, the dragon's jaw moves deliberately, and its prominent horns bob slightly with the rhythm of its voice. The warm light rays from the left continue to cast a soft, ethereal glow on the side of the dragon's face, highlighting the intricate, glossy texture of its purple and green scales. The young man remains perfectly still, his gaze fixed intently on the dragon's face, listening silently to the reply. [Shot 3] At 00:07.500, the camera cuts to a medium close-up of the young man from Shot 1, framing him from the chest up against the softly blurred, glowing blue background. The camera holds a perfectly static shot. The young man's expression shifts from a gentle smile to a look of complete, absolute stillness. He blinks once, slowly, his large blue eyes reflecting the warm, ethereal light rays from the left. His chest rises and falls with a quiet, steady breath, his shoulders dropping slightly as he lets out a soft, audible sigh. He remains completely silent, his lips pressed together in a firm, relaxed line, his posture stiffening slightly as he stares straight ahead, effectively halting the conversation. The small green plant with the yellow flower in the lower right corner remains visible, anchoring the foreground space as the scene settles into a quiet, motionless tableau.\n\noverall_soundscape: The soundscape begins with a continuous, low-frequency ambient hum of the cavern, accompanied by the gentle, sweeping rustle of the dragon's massive wings flapping. As the young man shifts his weight, the distinct, crisp creak of his leather backpack straps is clearly heard in the foreground. This is followed by the young man's soft, mid-pitched voice speaking clearly. The moment the dragon opens its mouth, a deep, resonant, and slightly raspy voice dominates the foreground, delivering the reply with a pronounced, heavy cadence. As the conversation stops, the vocalizations cease, leaving only the quiet, rhythmic sound of the young man's steady breathing and the persistent, echoing ambient hum of the cavern.\n\nnon_diegetic_music: A gentle, magical orchestral score featuring soft woodwinds and a delicate harp melody plays throughout, creating a sense of wonder and quiet companionship.",
+        "width": 1344,
+        "height": 768,
+        "length": 124
+      }
+    },
+    {
+      "id": 69,
+      "type": "ComfySwitchNode",
+      "pos": [
+        -1151.2745137603542,
+        5462.630843963093
+      ],
+      "size": [
+        332.1550154805043,
+        84.47448077921854
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "on_false",
+          "type": "STRING",
+          "link": 145
+        },
+        {
+          "name": "on_true",
+          "type": "STRING",
+          "link": 165
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "STRING",
+          "links": [
+            157,
+            168
+          ]
+        }
+      ],
+      "title": "If/Else Switch Use Prompt Rewriter",
+      "properties": {
+        "Node name for S&R": "ComfySwitchNode",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        true
+      ],
+      "widgets_values_named": {
+        "switch": true
+      }
+    },
+    {
+      "id": 31,
+      "type": "ComfyMathExpression",
+      "pos": [
+        1149.8037786910475,
+        6060.001537070331
+      ],
+      "size": [
+        408.76150000000007,
+        136.64795490709275
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "a",
+          "name": "values.a",
+          "type": "FLOAT,INT,BOOLEAN",
+          "link": 81
+        },
+        {
+          "name": "values.b",
+          "shape": 7,
+          "type": "FLOAT,INT,BOOLEAN",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": []
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            68
+          ]
+        },
+        {
+          "name": "BOOL",
+          "type": "BOOLEAN",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ComfyMathExpression",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+      ],
+      "widgets_values_named": {
+        "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+      }
+    },
+    {
+      "id": 22,
+      "type": "SaveVideo",
+      "pos": [
+        2193.956299929627,
+        5796.478121356537
+      ],
+      "size": [
+        756.2,
+        106
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 56
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "video/Minimax",
+        "auto",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "video/Minimax",
+        "format": "auto",
+        "format.codec": "auto",
+        "codec": "auto"
+      }
+    },
+    {
+      "id": 25,
+      "type": "ResolutionSelector",
+      "pos": [
+        -1097.5005704177813,
+        6109.422516124201
+      ],
+      "size": [
+        270,
+        126
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            79
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            80
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResolutionSelector",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        0.5,
+        32
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "16:9 (Widescreen)",
+        "megapixels": 0.5,
+        "multiple": 32
+      }
+    },
+    {
+      "id": 68,
+      "type": "PrimitiveStringMultiline",
+      "pos": [
+        -1340.8171183330394,
+        5601.482655955198
+      ],
+      "size": [
+        525.3459478856839,
+        439.7241253313696
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            145,
+            164
+          ]
+        }
+      ],
+      "title": "Prompt",
+      "properties": {
+        "Node name for S&R": "PrimitiveStringMultiline",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "The video is about a Male character hunting for hidden treasure on an island. The first shot starts with an galleon floating across the ocean in the morning. In the second shot, at 3 seconds, there is a close-up shot of the man sleeping in the galleon. He suddenly wakes up and says, “I think we’ve reached our destination.” In the third shot, at 6 seconds, the ship is on beach and the Male character takes a map in his hand and says, “So, according to the map, this must be the place.”"
+      ],
+      "widgets_values_named": {
+        "value": "The video is about a Male character hunting for hidden treasure on an island. The first shot starts with an galleon floating across the ocean in the morning. In the second shot, at 3 seconds, there is a close-up shot of the man sleeping in the galleon. He suddenly wakes up and says, “I think we’ve reached our destination.” In the third shot, at 6 seconds, the ship is on beach and the Male character takes a map in his hand and says, “So, according to the map, this must be the place.”"
+      }
+    },
+    {
+      "id": 23,
+      "type": "LoadImage",
+      "pos": [
+        -1650,
+        5593.460605256725
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            77,
+            162
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Load Image (First Frame)",
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "Krea2Turbo_00063_.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Krea2Turbo_00063_.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 24,
+      "type": "LoadImage",
+      "pos": [
+        -1650,
+        5971.153535085575
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            78,
+            163
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Load Image (Last Frame)",
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [
+        "Krea2Turbo_00069_.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Krea2Turbo_00069_.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 78,
+      "type": "MiniMaxH3RewriterOptions",
+      "pos": [
+        -759.1351907504072,
+        5448.268719805044
+      ],
+      "size": [
+        294.9498046875,
+        466
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "options",
+          "type": "H3_REWRITER_OPTIONS",
+          "links": [
+            169
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3RewriterOptions"
+      },
+      "widgets_values": [
+        2048,
+        0.7,
+        0.8,
+        20,
+        1.05,
+        "sdpa",
+        "lightx2v/MiniMax-H3-Prompt-Rewriter-LoRA",
+        true,
+        "auto",
+        true,
+        -1,
+        8192,
+        "auto",
+        "auto",
+        "auto",
+        false,
+        "global"
+      ],
+      "widgets_values_named": {
+        "max_new_tokens": 2048,
+        "temperature": 0.7,
+        "top_p": 0.8,
+        "top_k": 20,
+        "repetition_penalty": 1.05,
+        "attn_implementation": "sdpa",
+        "adapter": "lightx2v/MiniMax-H3-Prompt-Rewriter-LoRA",
+        "use_lora": true,
+        "merge_lora": "auto",
+        "auto_download": true,
+        "gpu_layers": -1,
+        "n_ctx": 8192,
+        "gguf_runtime": "auto",
+        "device": "auto",
+        "llama_backend": "auto",
+        "trust_remote_code": false,
+        "prompt_file": "global"
+      }
+    },
+    {
+      "id": 77,
+      "type": "MiniMaxH3PromptWriterOmni",
+      "pos": [
+        -385.0777734691794,
+        5448.37473220061
+      ],
+      "size": [
+        444.937109375,
+        786
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "options",
+          "shape": 7,
+          "type": "H3_REWRITER_OPTIONS",
+          "link": 169
+        },
+        {
+          "name": "references.ref_0",
+          "shape": 7,
+          "type": "IMAGE,VIDEO,AUDIO",
+          "link": 162
+        },
+        {
+          "name": "references.ref_1",
+          "shape": 7,
+          "type": "IMAGE,VIDEO,AUDIO",
+          "link": 163
+        },
+        {
+          "name": "references.ref_2",
+          "shape": 7,
+          "type": "IMAGE,VIDEO,AUDIO",
+          "link": null
+        },
+        {
+          "name": "duration",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration"
+          },
+          "link": 167
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 164
+        }
+      ],
+      "outputs": [
+        {
+          "name": "rewritten_prompt",
+          "type": "STRING",
+          "links": [
+            165
+          ]
+        },
+        {
+          "name": "integrated_multimodal_description",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "subject_definitions",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "summary",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "retention_analysis",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "detailed_description",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "overall_soundscape",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "non_diegetic_music",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3PromptWriterOmni"
+      },
+      "widgets_values": [
+        "{\"order\":[\"ref_0\",\"ref_1\"],\"off\":[\"ref_0\",\"ref_1\"]}",
+        "T2AV",
+        "16:9",
+        10,
+        "",
+        "Qwen2.5-Omni-7B GGUF Q8_0 · 9.7 GB download · ~13 GB - closer to the bf16 rewrite on a card that has room",
+        "nf4",
+        true,
+        1802697094,
+        "randomize",
+        false,
+        8,
+        false,
+        "",
+        false,
+        ""
+      ],
+      "widgets_values_named": {
+        "reference_layout": "{\"order\":[\"ref_0\",\"ref_1\"],\"off\":[\"ref_0\",\"ref_1\"]}",
+        "task": "T2AV",
+        "resolution": "16:9",
+        "duration": 10,
+        "prompt": "",
+        "model": "Qwen2.5-Omni-7B GGUF Q8_0 · 9.7 GB download · ~13 GB - closer to the bf16 rewrite on a card that has room",
+        "quantization": "nf4",
+        "greedy": true,
+        "seed": 1802697094,
+        "control_after_generate": "randomize",
+        "keep_model_loaded": false,
+        "max_frames": 8,
+        "bypass": false,
+        "aspect_ratio": "",
+        "repeat_last": false,
+        "library_pick": ""
+      }
+    },
+    {
+      "id": 65,
+      "type": "PreviewAny",
+      "pos": [
+        132.8014039388487,
+        5444.869763319205
+      ],
+      "size": [
+        915.5576467060444,
+        554.8303739787718
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 168
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewAny",
+        "cnr_id": "comfy-core",
+        "ver": "0.34.0"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    }
+  ],
+  "links": [
+    [
+      56,
+      21,
+      0,
+      22,
+      0,
+      "VIDEO"
+    ],
+    [
+      66,
+      35,
+      0,
+      30,
+      0,
+      "CLIP"
+    ],
+    [
+      67,
+      36,
+      0,
+      30,
+      1,
+      "VAE"
+    ],
+    [
+      68,
+      31,
+      1,
+      30,
+      7,
+      "INT"
+    ],
+    [
+      73,
+      36,
+      0,
+      33,
+      1,
+      "VAE"
+    ],
+    [
+      75,
+      37,
+      0,
+      34,
+      1,
+      "VAE"
+    ],
+    [
+      76,
+      35,
+      0,
+      29,
+      0,
+      "CLIP"
+    ],
+    [
+      77,
+      23,
+      0,
+      30,
+      2,
+      "IMAGE"
+    ],
+    [
+      78,
+      24,
+      0,
+      30,
+      3,
+      "IMAGE"
+    ],
+    [
+      79,
+      25,
+      0,
+      30,
+      5,
+      "INT"
+    ],
+    [
+      80,
+      25,
+      1,
+      30,
+      6,
+      "INT"
+    ],
+    [
+      81,
+      32,
+      0,
+      31,
+      0,
+      "FLOAT"
+    ],
+    [
+      82,
+      33,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      83,
+      34,
+      0,
+      21,
+      1,
+      "AUDIO"
+    ],
+    [
+      116,
+      55,
+      0,
+      53,
+      4,
+      "SIGMAS"
+    ],
+    [
+      117,
+      30,
+      1,
+      53,
+      5,
+      "LATENT"
+    ],
+    [
+      118,
+      30,
+      0,
+      53,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      119,
+      29,
+      0,
+      53,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      120,
+      48,
+      0,
+      55,
+      0,
+      "MODEL"
+    ],
+    [
+      121,
+      48,
+      0,
+      53,
+      0,
+      "MODEL"
+    ],
+    [
+      122,
+      53,
+      0,
+      33,
+      0,
+      "LATENT"
+    ],
+    [
+      123,
+      53,
+      0,
+      34,
+      0,
+      "LATENT"
+    ],
+    [
+      127,
+      41,
+      0,
+      59,
+      0,
+      "MODEL"
+    ],
+    [
+      132,
+      39,
+      0,
+      60,
+      0,
+      "MODEL"
+    ],
+    [
+      133,
+      60,
+      0,
+      41,
+      0,
+      "MODEL"
+    ],
+    [
+      134,
+      61,
+      0,
+      53,
+      3,
+      "SAMPLER"
+    ],
+    [
+      137,
+      59,
+      0,
+      48,
+      0,
+      "MODEL"
+    ],
+    [
+      145,
+      68,
+      0,
+      69,
+      0,
+      "STRING"
+    ],
+    [
+      157,
+      69,
+      0,
+      30,
+      4,
+      "STRING"
+    ],
+    [
+      162,
+      23,
+      0,
+      77,
+      1,
+      "IMAGE"
+    ],
+    [
+      163,
+      24,
+      0,
+      77,
+      2,
+      "IMAGE"
+    ],
+    [
+      164,
+      68,
+      0,
+      77,
+      5,
+      "STRING"
+    ],
+    [
+      165,
+      77,
+      0,
+      69,
+      1,
+      "STRING"
+    ],
+    [
+      167,
+      32,
+      0,
+      77,
+      4,
+      "FLOAT"
+    ],
+    [
+      168,
+      69,
+      0,
+      65,
+      0,
+      "STRING"
+    ],
+    [
+      169,
+      78,
+      0,
+      77,
+      0,
+      "H3_REWRITER_OPTIONS"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 2,
+      "title": "Load Models",
+      "bounding": [
+        -1973.2456774804405,
+        5413.410407005686,
+        292.92820000000006,
+        664.1853252545607
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Prompt Rewriter",
+      "bounding": [
+        -782.4952363200211,
+        5376.02329840478,
+        1840.8542869649143,
+        834.3514337958304
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6513150837775016,
+      "offset": [
+        2397.3173742136505,
+        -4954.58753640414
+      ]
+    },
+    "frontendVersion": "1.51.9",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
