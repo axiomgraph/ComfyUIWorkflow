@@ -1,0 +1,2226 @@
+{
+  "id": "ce457384-a6bd-442b-b2c1-cf6563498f37",
+  "revision": 0,
+  "last_node_id": 66,
+  "last_link_id": 156,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        -424.360906529309,
+        2380.3008501741074
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "qwen_image_2.1_bf16.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "qwen_image_2.1_bf16.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        -424.360906529309,
+        2508.3008501741074
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_8b_int8_convrot.safetensors",
+        "qwen_image",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_8b_int8_convrot.safetensors",
+        "type": "qwen_image",
+        "device": "default"
+      }
+    },
+    {
+      "id": 3,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        -81.68485621790893,
+        2210.0360633328223
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            125
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "qwen-image-2.1-outpaint-v2.safetensors",
+        1
+      ],
+      "widgets_values_named": {
+        "lora_name": "qwen-image-2.1-outpaint-v2.safetensors",
+        "strength_model": 1
+      }
+    },
+    {
+      "id": 4,
+      "type": "QwenImage21Cache",
+      "pos": [
+        908.0816479335749,
+        2210.0360633328223
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 62
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            110
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenImage21Cache"
+      },
+      "widgets_values": [
+        "auto",
+        "default"
+      ],
+      "widgets_values_named": {
+        "device": "auto",
+        "dtype": "default"
+      }
+    },
+    {
+      "id": 5,
+      "type": "TextEncodeQwenImage21",
+      "pos": [
+        907.301129199018,
+        2342.5402789934014
+      ],
+      "size": [
+        417.6505024295941,
+        436.1722703108476
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 3
+        },
+        {
+          "name": "images.image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 151
+        },
+        {
+          "name": "images.image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 68
+        },
+        {
+          "name": "images.image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 70
+        },
+        {
+          "name": "images.image_4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 82
+        },
+        {
+          "name": "images.image_5",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "images.image_6",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "images.image_7",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": 4
+        },
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": 99
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            111
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            112
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            121
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TextEncodeQwenImage21"
+      },
+      "widgets_values": [
+        "Replace the clothing and headwear of the woman in <image1> with the black t-shirt from <image2> and the hat from <image3>, preserving her identity, facial features, pose, and the original background while ensuring the new items are integrated naturally with consistent lighting and proportions.",
+        "",
+        0
+      ],
+      "widgets_values_named": {
+        "prompt": "Replace the clothing and headwear of the woman in <image1> with the black t-shirt from <image2> and the hat from <image3>, preserving her identity, facial features, pose, and the original background while ensuring the new items are integrated naturally with consistent lighting and proportions.",
+        "negative_prompt": "",
+        "resolution": 0
+      }
+    },
+    {
+      "id": 6,
+      "type": "VAELoader",
+      "pos": [
+        -424.360906529309,
+        2660.3008501741074
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4,
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_2.1_vae_bf16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+      }
+    },
+    {
+      "id": 9,
+      "type": "VAEDecode",
+      "pos": [
+        1490.975160044912,
+        2244.753235092111
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 120
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 12,
+      "type": "SaveImageAdvanced",
+      "pos": [
+        1678.437343665217,
+        2359.336613561588
+      ],
+      "size": [
+        370.09390910476736,
+        602.8080730194638
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            59
+          ]
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI",
+        "png",
+        "8-bit",
+        "sRGB"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "ComfyUI",
+        "format": "png",
+        "format.bit_depth": "8-bit",
+        "format.input_color_space": "sRGB"
+      }
+    },
+    {
+      "id": 13,
+      "type": "LoadImage",
+      "pos": [
+        -422.0647469734087,
+        3020.8179755614215
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            29
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "image": "clipspace-painted-masked-1790564123378.png [input]"
+      },
+      "widgets_values": [
+        "pexels-clarence-chan-2160207969-36949785.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pexels-clarence-chan-2160207969-36949785.jpg",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 20,
+      "type": "Image Comparer (rgthree)",
+      "pos": [
+        2088.87765638282,
+        2358.0098679190737
+      ],
+      "size": [
+        657.7999227371905,
+        603.0862049820716
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 59
+        },
+        {
+          "dir": 3,
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 155
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "images",
+          "shape": 3,
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "title": "Consistency Lora Vs Original",
+      "properties": {
+        "comparer_mode": "Slide"
+      },
+      "widgets_values": [
+        [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_jmmps_00063_.png&type=temp&subfolder=&rand=0.5158730745456576"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_jmmps_00064_.png&type=temp&subfolder=&rand=0.606440787287831"
+          }
+        ]
+      ],
+      "widgets_values_named": {
+        "rgthree_comparer": {
+          "images": [
+            {
+              "name": "A",
+              "selected": true,
+              "url": "/api/view?filename=rgthree.compare._temp_jmmps_00063_.png&type=temp&subfolder=&rand=0.5158730745456576",
+              "img": {}
+            },
+            {
+              "name": "B",
+              "selected": true,
+              "url": "/api/view?filename=rgthree.compare._temp_jmmps_00064_.png&type=temp&subfolder=&rand=0.606440787287831",
+              "img": {}
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": 21,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        -422.6317255105251,
+        3383.361605035611
+      ],
+      "size": [
+        276.4927734375,
+        106
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            148
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "lanczos",
+        1,
+        1
+      ],
+      "widgets_values_named": {
+        "upscale_method": "lanczos",
+        "megapixels": 1,
+        "resolution_steps": 1
+      }
+    },
+    {
+      "id": 25,
+      "type": "LoadImage",
+      "pos": [
+        227.5681468567755,
+        3167.618662942076
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            67
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Men’s Beige Plaid Casual Shirt – Minimal Everyday Style 🤍✨.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Men’s Beige Plaid Casual Shirt – Minimal Everyday Style 🤍✨.jpg",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 26,
+      "type": "LoadImage",
+      "pos": [
+        550.6157896859913,
+        3167.618662942076
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            69
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "Men's Trendy Plaid Check Shirts Collection _ Casual Full Sleeve Fashion Shirts.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "Men's Trendy Plaid Check Shirts Collection _ Casual Full Sleeve Fashion Shirts.jpg",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 30,
+      "type": "ModelAttentionBackend",
+      "pos": [
+        579.3938706525771,
+        2208.8016725633256
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 126
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            62
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ModelAttentionBackend"
+      },
+      "widgets_values": [
+        "comfy kitchen attention"
+      ],
+      "widgets_values_named": {
+        "attention": "comfy kitchen attention"
+      }
+    },
+    {
+      "id": 33,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        227.5681468567755,
+        3017.9507848457692
+      ],
+      "size": [
+        276.4927734375,
+        106
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 67
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            68,
+            79
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "lanczos",
+        1,
+        32
+      ],
+      "widgets_values_named": {
+        "upscale_method": "lanczos",
+        "megapixels": 1,
+        "resolution_steps": 32
+      }
+    },
+    {
+      "id": 34,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        550.6157896859913,
+        3018.5572622378522
+      ],
+      "size": [
+        276.4927734375,
+        106
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            70,
+            80
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "lanczos",
+        1,
+        32
+      ],
+      "widgets_values_named": {
+        "upscale_method": "lanczos",
+        "megapixels": 1,
+        "resolution_steps": 32
+      }
+    },
+    {
+      "id": 38,
+      "type": "PreviewAny",
+      "pos": [
+        467.54372149478957,
+        2340.048969160257
+      ],
+      "size": [
+        423.3230014842202,
+        353.86701442125286
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 86
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Preview Output",
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 39,
+      "type": "BatchImagesNode",
+      "pos": [
+        -357.87178354430705,
+        2787.789514764721
+      ],
+      "size": [
+        207.66912164829296,
+        126
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images.image0",
+          "type": "IMAGE",
+          "link": 150
+        },
+        {
+          "name": "images.image1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 79
+        },
+        {
+          "name": "images.image2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 80
+        },
+        {
+          "name": "images.image3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 83
+        },
+        {
+          "name": "images.image4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            85
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "BatchImagesNode"
+      }
+    },
+    {
+      "id": 40,
+      "type": "LoadImage",
+      "pos": [
+        878.9271128185434,
+        3164.2521426616304
+      ],
+      "size": [
+        282.798828125,
+        314
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 4,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            81
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "pexels-dhanno-23223837.jpg",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "pexels-dhanno-23223837.jpg",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 41,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        878.9271128185434,
+        3017.4038113006695
+      ],
+      "size": [
+        276.4927734375,
+        106
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 81
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            82,
+            83
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "lanczos",
+        1,
+        32
+      ],
+      "widgets_values_named": {
+        "upscale_method": "lanczos",
+        "megapixels": 1,
+        "resolution_steps": 32
+      }
+    },
+    {
+      "id": 42,
+      "type": "3f062bab-1f0e-43de-a18b-5686352a116e",
+      "pos": [
+        -85.87363251276602,
+        2338.8846374095524
+      ],
+      "size": [
+        533.41739841613,
+        518.8381277070912
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "enhance prompt",
+          "name": "switch",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "switch"
+          },
+          "link": null
+        },
+        {
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 85
+        }
+      ],
+      "outputs": [
+        {
+          "label": "output",
+          "name": "generated_text",
+          "type": "STRING",
+          "links": [
+            86,
+            99
+          ]
+        }
+      ],
+      "properties": {
+        "previewExposures": []
+      },
+      "widgets_values": [
+        "outpaint the image",
+        "gemma4_12b_int8_convrot.safetensors",
+        512,
+        0.7,
+        64,
+        0,
+        true
+      ],
+      "widgets_values_named": {
+        "prompt": "outpaint the image",
+        "clip_name": "gemma4_12b_int8_convrot.safetensors",
+        "max_length": 512,
+        "sampling_mode.temperature": 0.7,
+        "sampling_mode.top_k": 64,
+        "sampling_mode.seed": 0,
+        "switch": true
+      }
+    },
+    {
+      "id": 47,
+      "type": "KSampler",
+      "pos": [
+        1365.222727816653,
+        2332.404886137962
+      ],
+      "size": [
+        270,
+        262
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 110
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 111
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 112
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 121
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            120
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        147584728797649,
+        "randomize",
+        10,
+        1,
+        "euler",
+        "simple",
+        1
+      ],
+      "widgets_values_named": {
+        "seed": 147584728797649,
+        "control_after_generate": "randomize",
+        "steps": 10,
+        "cfg": 1,
+        "sampler_name": "euler",
+        "scheduler": "simple",
+        "denoise": 1
+      }
+    },
+    {
+      "id": 49,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        248.23731183258568,
+        2208.5874394545694
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 125
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            126
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly"
+      },
+      "widgets_values": [
+        "turbo8_lora_step2500.safetensors",
+        1
+      ],
+      "widgets_values_named": {
+        "lora_name": "turbo8_lora_step2500.safetensors",
+        "strength_model": 1
+      }
+    },
+    {
+      "id": 60,
+      "type": "ImagePadKJ",
+      "pos": [
+        -88.96427440279223,
+        3194.212618806393
+      ],
+      "size": [
+        270,
+        262
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 148
+        },
+        {
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        },
+        {
+          "name": "target_width",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        },
+        {
+          "name": "target_height",
+          "shape": 7,
+          "type": "INT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            153
+          ]
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImagePadKJ"
+      },
+      "widgets_values": [
+        383,
+        392,
+        0,
+        0,
+        0,
+        "color",
+        "#808080"
+      ],
+      "widgets_values_named": {
+        "left": 383,
+        "right": 392,
+        "top": 0,
+        "bottom": 0,
+        "extra_padding": 0,
+        "pad_mode": "color",
+        "color": "#808080"
+      }
+    },
+    {
+      "id": 62,
+      "type": "ImageScaleToTotalPixels",
+      "pos": [
+        -100.43538255588726,
+        3022.4535727847297
+      ],
+      "size": [
+        276.4927734375,
+        106
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 153
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            150,
+            151,
+            155,
+            156
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScaleToTotalPixels"
+      },
+      "widgets_values": [
+        "lanczos",
+        1,
+        32
+      ],
+      "widgets_values_named": {
+        "upscale_method": "lanczos",
+        "megapixels": 1,
+        "resolution_steps": 32
+      }
+    },
+    {
+      "id": 66,
+      "type": "PreviewImage",
+      "pos": [
+        -434.49074273691167,
+        3551.588727556872
+      ],
+      "size": [
+        456.00403699119124,
+        258
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 156
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      10,
+      6,
+      0,
+      9,
+      1,
+      "VAE"
+    ],
+    [
+      29,
+      13,
+      0,
+      21,
+      0,
+      "IMAGE"
+    ],
+    [
+      59,
+      12,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      62,
+      30,
+      0,
+      4,
+      0,
+      "MODEL"
+    ],
+    [
+      67,
+      25,
+      0,
+      33,
+      0,
+      "IMAGE"
+    ],
+    [
+      69,
+      26,
+      0,
+      34,
+      0,
+      "IMAGE"
+    ],
+    [
+      81,
+      40,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      86,
+      42,
+      0,
+      38,
+      0,
+      "STRING"
+    ],
+    [
+      110,
+      4,
+      0,
+      47,
+      0,
+      "MODEL"
+    ],
+    [
+      111,
+      5,
+      0,
+      47,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      112,
+      5,
+      1,
+      47,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      120,
+      47,
+      0,
+      9,
+      0,
+      "LATENT"
+    ],
+    [
+      121,
+      5,
+      2,
+      47,
+      3,
+      "LATENT"
+    ],
+    [
+      125,
+      3,
+      0,
+      49,
+      0,
+      "MODEL"
+    ],
+    [
+      126,
+      49,
+      0,
+      30,
+      0,
+      "MODEL"
+    ],
+    [
+      85,
+      39,
+      0,
+      42,
+      1,
+      "IMAGE"
+    ],
+    [
+      148,
+      21,
+      0,
+      60,
+      0,
+      "IMAGE"
+    ],
+    [
+      153,
+      60,
+      0,
+      62,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      9,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      150,
+      62,
+      0,
+      39,
+      0,
+      "IMAGE"
+    ],
+    [
+      79,
+      33,
+      0,
+      39,
+      1,
+      "IMAGE"
+    ],
+    [
+      80,
+      34,
+      0,
+      39,
+      2,
+      "IMAGE"
+    ],
+    [
+      83,
+      41,
+      0,
+      39,
+      3,
+      "IMAGE"
+    ],
+    [
+      3,
+      2,
+      0,
+      5,
+      0,
+      "CLIP"
+    ],
+    [
+      151,
+      62,
+      0,
+      5,
+      1,
+      "IMAGE"
+    ],
+    [
+      68,
+      33,
+      0,
+      5,
+      2,
+      "IMAGE"
+    ],
+    [
+      70,
+      34,
+      0,
+      5,
+      3,
+      "IMAGE"
+    ],
+    [
+      82,
+      41,
+      0,
+      5,
+      4,
+      "IMAGE"
+    ],
+    [
+      4,
+      6,
+      0,
+      5,
+      8,
+      "VAE"
+    ],
+    [
+      99,
+      42,
+      0,
+      5,
+      9,
+      "STRING"
+    ],
+    [
+      155,
+      62,
+      0,
+      20,
+      1,
+      "IMAGE"
+    ],
+    [
+      156,
+      62,
+      0,
+      66,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Image 1",
+      "bounding": [
+        -432.6317255105251,
+        2950.8179755614215,
+        623.6674511077329,
+        548.5436294741894
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Image 2",
+      "bounding": [
+        217.56814685677546,
+        2947.9507848457692,
+        302.798828125,
+        543.6678780963066
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "Image 3",
+      "bounding": [
+        540.6157896859912,
+        2948.5572622378522,
+        302.798828125,
+        543.0614007042236
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "Image 4",
+      "bounding": [
+        868.9271128185434,
+        2947.4038113006695,
+        302.798828125,
+        540.8483313609609
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "Load Models",
+      "bounding": [
+        -434.360906529309,
+        2310.3008501741074,
+        290,
+        418
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "3f062bab-1f0e-43de-a18b-5686352a116e",
+        "version": 1,
+        "state": {
+          "lastGroupId": 5,
+          "lastNodeId": 66,
+          "lastLinkId": 156,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Positive Prompt",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            -872.9444403708268,
+            1985.009870548262,
+            209.830078125,
+            208
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            239.82532201445622,
+            1985.009870548262,
+            128,
+            68
+          ]
+        },
+        "inputs": [
+          {
+            "id": "001f317e-9b15-4d98-acb7-c13d6d577cc5",
+            "name": "prompt",
+            "type": "STRING",
+            "linkIds": [
+              96
+            ],
+            "pos": [
+              -687.1143622458268,
+              2009.009870548262
+            ]
+          },
+          {
+            "id": "d2b74fca-b611-4a73-b010-0ff59c516d7b",
+            "name": "clip_name",
+            "type": "COMBO",
+            "linkIds": [
+              88
+            ],
+            "pos": [
+              -687.1143622458268,
+              2029.009870548262
+            ]
+          },
+          {
+            "id": "77c5b357-bcc4-466b-8589-59e50f987d72",
+            "name": "max_length",
+            "type": "INT",
+            "linkIds": [
+              89
+            ],
+            "pos": [
+              -687.1143622458268,
+              2049.009870548262
+            ]
+          },
+          {
+            "id": "93eea734-aa37-43da-8262-0ef495441f90",
+            "name": "sampling_mode.temperature",
+            "type": "FLOAT",
+            "linkIds": [
+              90
+            ],
+            "pos": [
+              -687.1143622458268,
+              2069.009870548262
+            ]
+          },
+          {
+            "id": "d3c8f960-c6a5-49be-aabb-03aaad85cdc9",
+            "name": "sampling_mode.top_k",
+            "type": "INT",
+            "linkIds": [
+              91
+            ],
+            "pos": [
+              -687.1143622458268,
+              2089.009870548262
+            ]
+          },
+          {
+            "id": "9fb95408-59f5-4cd3-9c34-9be92f281ab8",
+            "name": "sampling_mode.seed",
+            "type": "INT",
+            "linkIds": [
+              92
+            ],
+            "pos": [
+              -687.1143622458268,
+              2109.009870548262
+            ]
+          },
+          {
+            "id": "f1b175d1-c4ed-4209-aa88-d0cf70d47ad1",
+            "name": "switch",
+            "type": "BOOLEAN",
+            "linkIds": [
+              97
+            ],
+            "pos": [
+              -687.1143622458268,
+              2129.009870548262
+            ]
+          },
+          {
+            "id": "f3aa2a5c-e962-4c55-a548-b34496366304",
+            "name": "image",
+            "type": "IMAGE",
+            "linkIds": [
+              77
+            ],
+            "localized_name": "image",
+            "shape": 7,
+            "pos": [
+              -687.1143622458268,
+              2149.009870548262
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "56f2073e-e6b3-4d64-b616-1303d54e7e2c",
+            "name": "generated_text",
+            "type": "STRING",
+            "linkIds": [
+              93
+            ],
+            "localized_name": "generated_text",
+            "label": "output",
+            "pos": [
+              263.8253220144562,
+              2009.009870548262
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 35,
+            "type": "TextGenerate",
+            "pos": [
+              -220.17467798554378,
+              1810.5114008357216
+            ],
+            "size": [
+              400,
+              456
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 71
+              },
+              {
+                "localized_name": "image",
+                "name": "image",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": 77
+              },
+              {
+                "localized_name": "video",
+                "name": "video",
+                "shape": 7,
+                "type": "IMAGE",
+                "link": null
+              },
+              {
+                "localized_name": "audio",
+                "name": "audio",
+                "shape": 7,
+                "type": "AUDIO",
+                "link": null
+              },
+              {
+                "localized_name": "system_prompt",
+                "name": "system_prompt",
+                "shape": 7,
+                "type": "STRING",
+                "link": 84
+              },
+              {
+                "localized_name": "prompt",
+                "name": "prompt",
+                "type": "STRING",
+                "widget": {
+                  "name": "prompt"
+                },
+                "link": 98
+              },
+              {
+                "localized_name": "max_length",
+                "name": "max_length",
+                "type": "INT",
+                "widget": {
+                  "name": "max_length"
+                },
+                "link": 89
+              },
+              {
+                "localized_name": "temperature",
+                "name": "sampling_mode.temperature",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "sampling_mode.temperature"
+                },
+                "link": 90
+              },
+              {
+                "localized_name": "top_k",
+                "name": "sampling_mode.top_k",
+                "type": "INT",
+                "widget": {
+                  "name": "sampling_mode.top_k"
+                },
+                "link": 91
+              },
+              {
+                "localized_name": "seed",
+                "name": "sampling_mode.seed",
+                "type": "INT",
+                "widget": {
+                  "name": "sampling_mode.seed"
+                },
+                "link": 92
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "generated_text",
+                "name": "generated_text",
+                "type": "STRING",
+                "links": [
+                  94
+                ]
+              },
+              {
+                "localized_name": "thinking",
+                "name": "thinking",
+                "type": "STRING",
+                "links": null
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "TextGenerate"
+            },
+            "widgets_values": [
+              "",
+              512,
+              "on",
+              0.7,
+              64,
+              0.95,
+              0.05,
+              1.05,
+              0,
+              0,
+              false,
+              true,
+              "auto"
+            ],
+            "widgets_values_named": {
+              "prompt": "",
+              "max_length": 512,
+              "sampling_mode": "on",
+              "sampling_mode.temperature": 0.7,
+              "sampling_mode.top_k": 64,
+              "sampling_mode.top_p": 0.95,
+              "sampling_mode.min_p": 0.05,
+              "sampling_mode.repetition_penalty": 1.05,
+              "sampling_mode.seed": 0,
+              "sampling_mode.presence_penalty": 0,
+              "thinking": false,
+              "use_default_template": true,
+              "mtp": "auto"
+            }
+          },
+          {
+            "id": 37,
+            "type": "PrimitiveStringMultiline",
+            "pos": [
+              -639.7191441622731,
+              1986.289304082051
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  84
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "PrimitiveStringMultiline"
+            },
+            "widgets_values": [
+              "# Qwen-Image-2.1 Outpaint LoRA Prompt Enhancer\n\nYou generate prompts for an image outpainting LoRA.\n\nThe LoRA uses a fixed instruction as its trigger. This instruction is the most important part of the prompt and MUST appear first, exactly as written:\n\nOutpaint the image: replace the solid gray areas with a seamless continuation of the scene, keeping the existing picture unchanged.\n\nAfter the trigger, you may optionally provide a caption describing the existing source image:\n\nScene: <description>\n\nThe `Scene:` description describes the **whole visible source image**.\n\nIt does NOT describe the gray areas.\n\nIt does NOT describe what should be generated outside the original image.\n\nIt does NOT replace or modify the trigger instruction.\n\n---\n\n# REQUIRED TRIGGER\n\nAlways begin the output with this exact text:\n\nOutpaint the image: replace the solid gray areas with a seamless continuation of the scene, keeping the existing picture unchanged.\n\nDo not paraphrase it.\n\nDo not shorten it.\n\nDo not add text before it.\n\nDo not change its wording.\n\n---\n\n# SCENE DESCRIPTION\n\nAfter the fixed trigger, optionally add:\n\nScene: <description>\n\nThe scene description should function like an image caption.\n\nDescribe what is visibly present in the source image.\n\nInclude useful visual information such as:\n\n* Main subject\n* People or animals\n* Important objects\n* Environment\n* Location type when visually apparent\n* Architecture\n* Landscape\n* Interior or exterior setting\n* Clothing when relevant\n* Spatial relationships\n* Important background elements\n* Overall composition\n* Major visual characteristics\n\nThe description should describe the **existing picture as a whole**, because the training captions for the LoRA describe the whole image.\n\n---\n\n# DO NOT DESCRIBE THE OUTPAINT AREA\n\nNever assume what is beyond the existing image boundaries.\n\nDo not write things such as:\n\n\"the image is extended into a blue sky\"\n\nunless that information is explicitly visible or requested.\n\nDo not describe the gray area.\n\nDo not invent objects that should appear outside the original image.\n\nDo not predict what the model should generate.\n\nThe outpainting model determines the continuation from the source image, mask, and trigger.\n\n---\n\n# USER INSTRUCTIONS\n\nThe user may provide a request such as:\n\n* \"extend this image\"\n* \"make it wider\"\n* \"expand to the left\"\n* \"expand to the right\"\n* \"make it taller\"\n* \"show more of the scene\"\n* \"extend the background\"\n\nThese instructions do not need to be rewritten into a new outpainting prompt.\n\nThe fixed trigger already tells the model to perform outpainting.\n\nUse the user's instruction only when it provides useful information that should be included in the final prompt.\n\nDo not unnecessarily add directional or generative instructions that are already determined by the outpainting mask.\n\n---\n\n# IMAGE CAPTIONING\n\nWhen an image is available, use the visible content of the image to construct the `Scene:` description.\n\nDescribe the actual source image rather than relying only on the user's text.\n\nFor example, if the source image visibly contains a woman standing outdoors beside a car:\n\nScene: A woman standing outdoors beside a car in a natural landscape.\n\nIf the image contains a person sitting inside a room:\n\nScene: A person sitting inside a room with furniture and interior surroundings visible.\n\nKeep the description factual and grounded.\n\n---\n\n# LEVEL OF DETAIL\n\nUse enough detail to identify the scene and its important visual elements.\n\nDo not create an extremely long caption.\n\nPrioritize the most visually meaningful information.\n\nA good scene description is usually one or a few sentences.\n\nDo not add generic prompt filler such as:\n\n* masterpiece\n* best quality\n* ultra detailed\n* 8K\n* cinematic\n* stunning\n* beautiful\n* professional photography\n\nunless such characteristics are genuinely important to describing the source image.\n\n---\n\n# DO NOT INVENT\n\nOnly describe information supported by the image.\n\nNever invent:\n\n* People\n* Objects\n* Clothing\n* Locations\n* Text\n* Architecture\n* Colors\n* Materials\n* Weather\n* Camera settings\n* Artistic style\n\nIf a detail cannot be confidently identified, omit it or describe it generally.\n\nFor example, use:\n\n\"an outdoor urban environment\"\n\nrather than inventing a specific city.\n\n---\n\n# PRESERVATION\n\nDo not add long preservation instructions.\n\nThe fixed trigger already contains the critical preservation instruction:\n\n\"keeping the existing picture unchanged.\"\n\nDo not repeat this idea throughout the `Scene:` description.\n\nThe `Scene:` section is a caption, not a list of preservation instructions.\n\n---\n\n# USER-SPECIFIED DETAILS\n\nIf the user provides an important detail about the source image that is not clearly visible but is relevant to identifying the scene, it may be included in the `Scene:` description.\n\nHowever, never contradict the visible image.\n\nThe image takes priority for visual facts.\n\n---\n\n# MULTIPLE IMAGES\n\nThis prompt enhancer is primarily intended for a single source image.\n\nIf multiple images are supplied, only refer to them when the user's request explicitly requires a reference image.\n\nUse:\n\n<image1>\n\n<image2>\n\netc. according to their input order.\n\nDo not automatically introduce image tags when they are unnecessary.\n\n---\n\n# OUTPUT FORMAT\n\nPreferred output:\n\nOutpaint the image: replace the solid gray areas with a seamless continuation of the scene, keeping the existing picture unchanged. Scene: <description>\n\nThe trigger MUST appear first.\n\nThe `Scene:` section is optional.\n\nIf there is insufficient information to produce a useful scene description, output only the fixed trigger.\n\n---\n\n# FINAL RULE\n\nYour task is NOT to creatively rewrite the outpainting instruction.\n\nYour task is to provide the LoRA's fixed trigger followed, when useful, by an accurate caption of the source image.\n\nReturn ONLY the final prompt.\n\nDo not provide explanations.\n\nDo not provide JSON.\n\nDo not provide bullet points.\n\nDo not describe your reasoning.\n"
+            ],
+            "widgets_values_named": {
+              "value": "# Qwen-Image-2.1 Outpaint LoRA Prompt Enhancer\n\nYou generate prompts for an image outpainting LoRA.\n\nThe LoRA uses a fixed instruction as its trigger. This instruction is the most important part of the prompt and MUST appear first, exactly as written:\n\nOutpaint the image: replace the solid gray areas with a seamless continuation of the scene, keeping the existing picture unchanged.\n\nAfter the trigger, you may optionally provide a caption describing the existing source image:\n\nScene: <description>\n\nThe `Scene:` description describes the **whole visible source image**.\n\nIt does NOT describe the gray areas.\n\nIt does NOT describe what should be generated outside the original image.\n\nIt does NOT replace or modify the trigger instruction.\n\n---\n\n# REQUIRED TRIGGER\n\nAlways begin the output with this exact text:\n\nOutpaint the image: replace the solid gray areas with a seamless continuation of the scene, keeping the existing picture unchanged.\n\nDo not paraphrase it.\n\nDo not shorten it.\n\nDo not add text before it.\n\nDo not change its wording.\n\n---\n\n# SCENE DESCRIPTION\n\nAfter the fixed trigger, optionally add:\n\nScene: <description>\n\nThe scene description should function like an image caption.\n\nDescribe what is visibly present in the source image.\n\nInclude useful visual information such as:\n\n* Main subject\n* People or animals\n* Important objects\n* Environment\n* Location type when visually apparent\n* Architecture\n* Landscape\n* Interior or exterior setting\n* Clothing when relevant\n* Spatial relationships\n* Important background elements\n* Overall composition\n* Major visual characteristics\n\nThe description should describe the **existing picture as a whole**, because the training captions for the LoRA describe the whole image.\n\n---\n\n# DO NOT DESCRIBE THE OUTPAINT AREA\n\nNever assume what is beyond the existing image boundaries.\n\nDo not write things such as:\n\n\"the image is extended into a blue sky\"\n\nunless that information is explicitly visible or requested.\n\nDo not describe the gray area.\n\nDo not invent objects that should appear outside the original image.\n\nDo not predict what the model should generate.\n\nThe outpainting model determines the continuation from the source image, mask, and trigger.\n\n---\n\n# USER INSTRUCTIONS\n\nThe user may provide a request such as:\n\n* \"extend this image\"\n* \"make it wider\"\n* \"expand to the left\"\n* \"expand to the right\"\n* \"make it taller\"\n* \"show more of the scene\"\n* \"extend the background\"\n\nThese instructions do not need to be rewritten into a new outpainting prompt.\n\nThe fixed trigger already tells the model to perform outpainting.\n\nUse the user's instruction only when it provides useful information that should be included in the final prompt.\n\nDo not unnecessarily add directional or generative instructions that are already determined by the outpainting mask.\n\n---\n\n# IMAGE CAPTIONING\n\nWhen an image is available, use the visible content of the image to construct the `Scene:` description.\n\nDescribe the actual source image rather than relying only on the user's text.\n\nFor example, if the source image visibly contains a woman standing outdoors beside a car:\n\nScene: A woman standing outdoors beside a car in a natural landscape.\n\nIf the image contains a person sitting inside a room:\n\nScene: A person sitting inside a room with furniture and interior surroundings visible.\n\nKeep the description factual and grounded.\n\n---\n\n# LEVEL OF DETAIL\n\nUse enough detail to identify the scene and its important visual elements.\n\nDo not create an extremely long caption.\n\nPrioritize the most visually meaningful information.\n\nA good scene description is usually one or a few sentences.\n\nDo not add generic prompt filler such as:\n\n* masterpiece\n* best quality\n* ultra detailed\n* 8K\n* cinematic\n* stunning\n* beautiful\n* professional photography\n\nunless such characteristics are genuinely important to describing the source image.\n\n---\n\n# DO NOT INVENT\n\nOnly describe information supported by the image.\n\nNever invent:\n\n* People\n* Objects\n* Clothing\n* Locations\n* Text\n* Architecture\n* Colors\n* Materials\n* Weather\n* Camera settings\n* Artistic style\n\nIf a detail cannot be confidently identified, omit it or describe it generally.\n\nFor example, use:\n\n\"an outdoor urban environment\"\n\nrather than inventing a specific city.\n\n---\n\n# PRESERVATION\n\nDo not add long preservation instructions.\n\nThe fixed trigger already contains the critical preservation instruction:\n\n\"keeping the existing picture unchanged.\"\n\nDo not repeat this idea throughout the `Scene:` description.\n\nThe `Scene:` section is a caption, not a list of preservation instructions.\n\n---\n\n# USER-SPECIFIED DETAILS\n\nIf the user provides an important detail about the source image that is not clearly visible but is relevant to identifying the scene, it may be included in the `Scene:` description.\n\nHowever, never contradict the visible image.\n\nThe image takes priority for visual facts.\n\n---\n\n# MULTIPLE IMAGES\n\nThis prompt enhancer is primarily intended for a single source image.\n\nIf multiple images are supplied, only refer to them when the user's request explicitly requires a reference image.\n\nUse:\n\n<image1>\n\n<image2>\n\netc. according to their input order.\n\nDo not automatically introduce image tags when they are unnecessary.\n\n---\n\n# OUTPUT FORMAT\n\nPreferred output:\n\nOutpaint the image: replace the solid gray areas with a seamless continuation of the scene, keeping the existing picture unchanged. Scene: <description>\n\nThe trigger MUST appear first.\n\nThe `Scene:` section is optional.\n\nIf there is insufficient information to produce a useful scene description, output only the fixed trigger.\n\n---\n\n# FINAL RULE\n\nYour task is NOT to creatively rewrite the outpainting instruction.\n\nYour task is to provide the LoRA's fixed trigger followed, when useful, by an accurate caption of the source image.\n\nReturn ONLY the final prompt.\n\nDo not provide explanations.\n\nDo not provide JSON.\n\nDo not provide bullet points.\n\nDo not describe your reasoning.\n"
+            }
+          },
+          {
+            "id": 36,
+            "type": "CLIPLoader",
+            "pos": [
+              -554.3809757134683,
+              1801.5083402608025
+            ],
+            "size": [
+              270,
+              106
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip_name",
+                "name": "clip_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "clip_name"
+                },
+                "link": 88
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "CLIP",
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [
+                  71
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPLoader"
+            },
+            "widgets_values": [
+              "gemma4_12b_int8_convrot.safetensors",
+              "stable_diffusion",
+              "default"
+            ],
+            "widgets_values_named": {
+              "clip_name": "gemma4_12b_int8_convrot.safetensors",
+              "type": "stable_diffusion",
+              "device": "default"
+            }
+          },
+          {
+            "id": 43,
+            "type": "PrimitiveStringMultiline",
+            "pos": [
+              -667.3797161688202,
+              2277.372122226911
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "value",
+                "name": "value",
+                "type": "STRING",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 96
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "STRING",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  95,
+                  98
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "PrimitiveStringMultiline"
+            },
+            "widgets_values": [
+              ""
+            ],
+            "widgets_values_named": {
+              "value": ""
+            }
+          },
+          {
+            "id": 44,
+            "type": "ComfySwitchNode",
+            "pos": [
+              -87.69323266736144,
+              2327.089797858852
+            ],
+            "size": [
+              270,
+              78
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "on_false",
+                "name": "on_false",
+                "shape": 7,
+                "type": "STRING",
+                "link": 95
+              },
+              {
+                "localized_name": "on_true",
+                "name": "on_true",
+                "shape": 7,
+                "type": "STRING",
+                "link": 94
+              },
+              {
+                "localized_name": "switch",
+                "name": "switch",
+                "type": "BOOLEAN",
+                "widget": {
+                  "name": "switch"
+                },
+                "link": 97
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "output",
+                "name": "output",
+                "type": "STRING",
+                "links": [
+                  93
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ComfySwitchNode"
+            },
+            "widgets_values": [
+              true
+            ],
+            "widgets_values_named": {
+              "switch": true
+            }
+          }
+        ],
+        "groups": [],
+        "links": [
+          {
+            "id": 93,
+            "origin_id": 44,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "*"
+          },
+          {
+            "id": 94,
+            "origin_id": 35,
+            "origin_slot": 0,
+            "target_id": 44,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 95,
+            "origin_id": 43,
+            "origin_slot": 0,
+            "target_id": 44,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 96,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 43,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 88,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 36,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 97,
+            "origin_id": -10,
+            "origin_slot": 6,
+            "target_id": 44,
+            "target_slot": 2,
+            "type": "BOOLEAN"
+          },
+          {
+            "id": 71,
+            "origin_id": 36,
+            "origin_slot": 0,
+            "target_id": 35,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 77,
+            "origin_id": -10,
+            "origin_slot": 7,
+            "target_id": 35,
+            "target_slot": 1,
+            "type": "IMAGE"
+          },
+          {
+            "id": 84,
+            "origin_id": 37,
+            "origin_slot": 0,
+            "target_id": 35,
+            "target_slot": 4,
+            "type": "STRING"
+          },
+          {
+            "id": 98,
+            "origin_id": 43,
+            "origin_slot": 0,
+            "target_id": 35,
+            "target_slot": 5,
+            "type": "STRING"
+          },
+          {
+            "id": 89,
+            "origin_id": -10,
+            "origin_slot": 2,
+            "target_id": 35,
+            "target_slot": 6,
+            "type": "INT"
+          },
+          {
+            "id": 90,
+            "origin_id": -10,
+            "origin_slot": 3,
+            "target_id": 35,
+            "target_slot": 7,
+            "type": "FLOAT"
+          },
+          {
+            "id": 91,
+            "origin_id": -10,
+            "origin_slot": 4,
+            "target_id": 35,
+            "target_slot": 8,
+            "type": "INT"
+          },
+          {
+            "id": 92,
+            "origin_id": -10,
+            "origin_slot": 5,
+            "target_id": 35,
+            "target_slot": 9,
+            "type": "INT"
+          }
+        ],
+        "extra": {}
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7364693025543859,
+      "offset": [
+        875.6885786585468,
+        -2494.6667304114844
+      ]
+    },
+    "frontendVersion": "1.53.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
