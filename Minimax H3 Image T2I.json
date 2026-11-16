@@ -1,0 +1,638 @@
+{
+  "id": "b7b56139-31fb-462a-bc6d-98d50f51a4f3",
+  "revision": 0,
+  "last_node_id": 46,
+  "last_link_id": 131,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        282.32851862719184,
+        209.48249534078496
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            89
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_image_pruned_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        282.32851862719184,
+        341.37523534303114
+      ],
+      "size": [
+        270,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            90
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        282.32851862719184,
+        497.26797534527725
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "minimax_h3_image_vae_fp16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_image_vae_fp16.safetensors"
+      }
+    },
+    {
+      "id": 6,
+      "type": "SamplerCustom",
+      "pos": [
+        1639.2305295053582,
+        362.41343062350484
+      ],
+      "size": [
+        271.125,
+        230
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 127
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 129
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 4
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 131
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 82
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 128
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            61
+          ]
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom"
+      },
+      "widgets_values": [
+        true,
+        626967782063375,
+        "randomize",
+        1
+      ],
+      "widgets_values_named": {
+        "add_noise": true,
+        "noise_seed": 626967782063375,
+        "control_after_generate": "randomize",
+        "cfg": 1
+      }
+    },
+    {
+      "id": 7,
+      "type": "ConditioningZeroOut",
+      "pos": [
+        1344.945279244637,
+        378.6764243943778
+      ],
+      "size": [
+        204.134765625,
+        26
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "conditioning",
+          "type": "CONDITIONING",
+          "link": 119
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConditioningZeroOut"
+      }
+    },
+    {
+      "id": 8,
+      "type": "KSamplerSelect",
+      "pos": [
+        1335.601228616511,
+        467.21744390323886
+      ],
+      "size": [
+        249.5076940889767,
+        62.000014083084665
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            131
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ],
+      "widgets_values_named": {
+        "sampler_name": "euler"
+      }
+    },
+    {
+      "id": 9,
+      "type": "ManualSigmas",
+      "pos": [
+        1323.4739295057907,
+        672.7104516940043
+      ],
+      "size": [
+        583.3528416823559,
+        93.9875078284004
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            82
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ManualSigmas"
+      },
+      "widgets_values": [
+        " 1.0, 0.9675236940383911, 0.8875485062599182, 0.75, 0.5327739119529724, 0.23200887441635132, 0.0"
+      ],
+      "widgets_values_named": {
+        "sigmas": " 1.0, 0.9675236940383911, 0.8875485062599182, 0.75, 0.5327739119529724, 0.23200887441635132, 0.0"
+      }
+    },
+    {
+      "id": 10,
+      "type": "VAEDecode",
+      "pos": [
+        1683.7660719800456,
+        249.73702372052293
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 61
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 18
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            15
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 13,
+      "type": "SaveImageAdvanced",
+      "pos": [
+        1957.0153760618784,
+        250.9009552954936
+      ],
+      "size": [
+        464.1579363144164,
+        514.6042392183376
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": []
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI",
+        "png",
+        "8-bit",
+        "sRGB",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "ComfyUI",
+        "format": "png",
+        "format.bit_depth": "8-bit",
+        "format.input_color_space": "sRGB",
+        "format.channels": "auto"
+      }
+    },
+    {
+      "id": 14,
+      "type": "ResolutionSelector",
+      "pos": [
+        282.32851862719184,
+        605.1607153475234
+      ],
+      "size": [
+        270,
+        150
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "showAdvanced": true,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            94
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            95
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResolutionSelector"
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        8,
+        32
+      ],
+      "widgets_values_named": {
+        "aspect_ratio": "16:9 (Widescreen)",
+        "megapixels": 8,
+        "multiple": 32
+      }
+    },
+    {
+      "id": 39,
+      "type": "MiniMaxH3PromptWeight",
+      "pos": [
+        611.6172832091834,
+        236.8180780656511
+      ],
+      "size": [
+        682.6759300134325,
+        517.1498847132369
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 89
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 90
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 94
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 95
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            127
+          ]
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            119,
+            129
+          ]
+        },
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            128
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3PromptWeight"
+      },
+      "widgets_values": [
+        "A cinematic close-up portrait of a woman standing in a dark environment, intense cyan light illuminating one side of her face and deep red light illuminating the other, (glossy lips:1.5), dark background, dramatic color contrast, cinematic photography.",
+        1,
+        0,
+        0,
+        "text only"
+      ],
+      "widgets_values_named": {
+        "text": "A cinematic close-up portrait of a woman standing in a dark environment, intense cyan light illuminating one side of her face and deep red light illuminating the other, (glossy lips:1.5), dark background, dramatic color contrast, cinematic photography.",
+        "strength": 1,
+        "width": 0,
+        "height": 0,
+        "mode": "text only"
+      }
+    }
+  ],
+  "links": [
+    [
+      4,
+      7,
+      0,
+      6,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      18,
+      3,
+      0,
+      10,
+      1,
+      "VAE"
+    ],
+    [
+      61,
+      6,
+      0,
+      10,
+      0,
+      "LATENT"
+    ],
+    [
+      82,
+      9,
+      0,
+      6,
+      4,
+      "SIGMAS"
+    ],
+    [
+      119,
+      39,
+      1,
+      7,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      15,
+      10,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      127,
+      39,
+      0,
+      6,
+      0,
+      "MODEL"
+    ],
+    [
+      128,
+      39,
+      2,
+      6,
+      5,
+      "LATENT"
+    ],
+    [
+      129,
+      39,
+      1,
+      6,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      131,
+      8,
+      0,
+      6,
+      3,
+      "SAMPLER"
+    ],
+    [
+      89,
+      1,
+      0,
+      39,
+      0,
+      "MODEL"
+    ],
+    [
+      90,
+      2,
+      0,
+      39,
+      1,
+      "CLIP"
+    ],
+    [
+      94,
+      14,
+      0,
+      39,
+      2,
+      "INT"
+    ],
+    [
+      95,
+      14,
+      1,
+      39,
+      3,
+      "INT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.635079908265583,
+      "offset": [
+        -614.8057425695832,
+        -262.10703654751524
+      ]
+    },
+    "frontendVersion": "1.59.1",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
